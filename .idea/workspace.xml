@@ -57,7 +57,7 @@
       <recent name="C:\Users\iw\intellijidea_workspace\tasi\src\main\resources\assets\public\css" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JDBCTest.urlByEnvCredentials">
+  <component name="RunManager" selected="JUnit.JDBCTest.urlDefault">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.iw.App" />
       <module name="tasi" />
@@ -123,8 +123,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JDBCTest.urlDefault" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tasi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iw" />
+      <option name="MAIN_CLASS_NAME" value="com.iw.JDBCTest" />
+      <option name="METHOD_NAME" value="urlDefault" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JDBCTest.urlDefault" />
         <item itemvalue="JUnit.JDBCTest.urlByEnvCredentials" />
         <item itemvalue="JUnit.JDBCTest.lambda" />
         <item itemvalue="Application.App" />

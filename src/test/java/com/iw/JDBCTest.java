@@ -15,6 +15,14 @@ public final class JDBCTest {
     }
 
     @Test
+    public void urlDefault() {
+        final JDBC jdbc = new PsqlJDBC("foo", "foo");
+        final String expected = String.format(
+                "jdbc:postgresql://localhost:5432/postgres?user=%s&password=%s", "foo", "foo");
+        assertThat(jdbc.url()).isEqualTo(expected);
+    }
+
+    @Test
     public void urlByEnvCredentials() {
         final Map<String, String> envs = System.getenv();
         final String username = envs.get("username");
