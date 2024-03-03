@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="608e34ba-2fa9-46c0-9b16-c35093c31c64" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/iw/JDBCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/iw/JDBCTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +57,7 @@
       <recent name="C:\Users\iw\intellijidea_workspace\tasi\src\main\resources\assets\public\css" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JDBCTest.lambda">
+  <component name="RunManager" selected="JUnit.JDBCTest.urlByEnvCredentials">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.iw.App" />
       <module name="tasi" />
@@ -86,8 +87,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JDBCTest.postgres" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="tasi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iw" />
+      <option name="MAIN_CLASS_NAME" value="com.iw.JDBCTest" />
+      <option name="METHOD_NAME" value="postgres" />
+      <option name="TEST_OBJECT" value="method" />
+      <envs>
+        <env name="username" value="postgres" />
+        <env name="password" value="postgres" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDBCTest.urlByEnvCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tasi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iw" />
+      <option name="MAIN_CLASS_NAME" value="com.iw.JDBCTest" />
+      <option name="METHOD_NAME" value="urlByEnvCredentials" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JDBCTest.urlByEnvCredentials" />
         <item itemvalue="JUnit.JDBCTest.lambda" />
         <item itemvalue="Application.App" />
       </list>
