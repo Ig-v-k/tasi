@@ -1,5 +1,6 @@
 package com.iw.event;
 
+import com.iw.Container;
 import com.iw.Event;
 
 import java.sql.Connection;
@@ -12,6 +13,11 @@ public final class SqlEvent implements Event {
 
     private final Container container;
     private final int id;
+
+    public SqlEvent(Container container, int id) {
+        this.container = container;
+        this.id = id;
+    }
 
     @Override
     public int id() {

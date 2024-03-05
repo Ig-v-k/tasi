@@ -20,7 +20,7 @@ public final class SqlContainer implements Container {
     }
 
     @Override
-    public Connection con() throws SQLException {
+    public Connection conn() throws SQLException {
         final Connection connection = DriverManager.getConnection(url);
         connection.setSchema("public");
         connection.setAutoCommit(false);
