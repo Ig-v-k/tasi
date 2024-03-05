@@ -11,7 +11,7 @@ public final class PsqlJDBC implements JDBC {
     private final String password;
 
     public PsqlJDBC(String username, String password) {
-        this("localhost", 5432, "postgres", username, password);
+        this("localhost", 5432, "tasi", username, password);
     }
 
     public PsqlJDBC(String host, int port, String database, String username, String password) {
