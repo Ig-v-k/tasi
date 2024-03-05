@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="608e34ba-2fa9-46c0-9b16-c35093c31c64" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/iw/EventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/iw/EventTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,62 +58,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.EventTest.title">
-    <configuration name="ContainerTest.connection" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="tasi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.iw" />
-      <option name="MAIN_CLASS_NAME" value="com.iw.ContainerTest" />
-      <option name="METHOD_NAME" value="connection" />
-      <option name="TEST_OBJECT" value="method" />
-      <envs>
-        <env name="username" value="postgres" />
-        <env name="password" value="postgres" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ContainerTest.connectionSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tasi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.iw" />
-      <option name="MAIN_CLASS_NAME" value="com.iw.ContainerTest" />
-      <option name="METHOD_NAME" value="connectionSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <envs>
-        <env name="username" value="postgres" />
-        <env name="password" value="postgres" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EventTest.id" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tasi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.iw" />
-      <option name="MAIN_CLASS_NAME" value="com.iw.EventTest" />
-      <option name="METHOD_NAME" value="id" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="EventTest.title" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tasi" />
       <extension name="coverage">
@@ -125,22 +70,6 @@
       <option name="MAIN_CLASS_NAME" value="com.iw.EventTest" />
       <option name="METHOD_NAME" value="title" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JDBCTest.postgres" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="tasi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.iw" />
-      <option name="MAIN_CLASS_NAME" value="com.iw.JDBCTest" />
-      <option name="METHOD_NAME" value="postgres" />
-      <option name="TEST_OBJECT" value="method" />
       <envs>
         <env name="username" value="postgres" />
         <env name="password" value="postgres" />
@@ -149,45 +78,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JDBCTest.urlByEnvCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test_env" type="JUnit" factoryName="JUnit">
       <module name="tasi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.iw" />
-      <option name="MAIN_CLASS_NAME" value="com.iw.JDBCTest" />
-      <option name="METHOD_NAME" value="urlByEnvCredentials" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <envs>
+        <env name="password" value="postgres" />
+        <env name="username" value="postgres" />
+      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JDBCTest.urlDefault" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tasi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.iw" />
-      <option name="MAIN_CLASS_NAME" value="com.iw.JDBCTest" />
-      <option name="METHOD_NAME" value="urlDefault" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="JUnit.test_env" />
+      <item itemvalue="JUnit.EventTest.title" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.EventTest.title" />
-        <item itemvalue="JUnit.EventTest.id" />
-        <item itemvalue="JUnit.ContainerTest.connectionSuccess" />
-        <item itemvalue="JUnit.JDBCTest.urlDefault" />
-        <item itemvalue="JUnit.JDBCTest.urlByEnvCredentials" />
       </list>
     </recent_temporary>
   </component>

@@ -30,8 +30,7 @@ public final class SqlEvent implements Event {
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();
              final ResultSet rs = st.executeQuery(query)) {
-            final int row = rs.getRow();
-            if (row > 0) {
+            if (rs.next()) {
                 final String title = rs.getString("title");
                 return title;
             } else {
