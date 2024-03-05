@@ -18,7 +18,7 @@ public final class JDBCTest {
     public void urlDefault() {
         final JDBC jdbc = new PsqlJDBC("foo", "foo");
         final String expected = String.format(
-                "jdbc:postgresql://localhost:5432/postgres?user=%s&password=%s", "foo", "foo");
+                "jdbc:postgresql://localhost:5432/tasi?user=%s&password=%s", "foo", "foo");
         assertThat(jdbc.url()).isEqualTo(expected);
     }
 
@@ -29,7 +29,7 @@ public final class JDBCTest {
         final String password = envs.get("password");
         final JDBC jdbc = new PsqlJDBC(username, password);
         final String expected = String.format(
-                "jdbc:postgresql://localhost:5432/postgres?user=%s&password=%s", username, password);
+                "jdbc:postgresql://localhost:5432/tasi?user=%s&password=%s", username, password);
         assertThat(jdbc.url()).isEqualTo(expected);
     }
 }
