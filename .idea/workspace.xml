@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="608e34ba-2fa9-46c0-9b16-c35093c31c64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/page/TestPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/page/TestPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -58,7 +56,7 @@
       <recent name="C:\Users\iw\intellijidea_workspace\tasi\src\main\resources\assets\public\css" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CommentTest">
+  <component name="RunManager" selected="JUnit.FacetTest.render">
     <configuration name="CommentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tasi" />
       <extension name="coverage">
@@ -99,6 +97,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FacetTest.render" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tasi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iw" />
+      <option name="MAIN_CLASS_NAME" value="com.iw.FacetTest" />
+      <option name="METHOD_NAME" value="render" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test_env" type="JUnit" factoryName="JUnit">
       <module name="tasi" />
       <option name="PACKAGE_NAME" value="" />
@@ -116,10 +130,12 @@
     <list>
       <item itemvalue="JUnit.test_env" />
       <item itemvalue="JUnit.CommentTest" />
+      <item itemvalue="JUnit.FacetTest.render" />
       <item itemvalue="JUnit.EventTest.title" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FacetTest.render" />
         <item itemvalue="JUnit.CommentTest" />
         <item itemvalue="JUnit.EventTest.title" />
       </list>
