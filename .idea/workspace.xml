@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="608e34ba-2fa9-46c0-9b16-c35093c31c64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/iw/EventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/iw/EventTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/iw/AbsContainerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/iw/AbsContainerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,27 @@
       <recent name="C:\Users\iw\intellijidea_workspace\tasi\src\main\resources\assets\public\css" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EventTest.title">
+  <component name="RunManager" selected="JUnit.CommentTest">
+    <configuration name="CommentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tasi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iw" />
+      <option name="MAIN_CLASS_NAME" value="com.iw.CommentTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <envs>
+        <env name="username" value="postgres" />
+        <env name="password" value="postgres" />
+      </envs>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EventTest.title" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tasi" />
       <extension name="coverage">
@@ -94,10 +114,12 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.test_env" />
+      <item itemvalue="JUnit.CommentTest" />
       <item itemvalue="JUnit.EventTest.title" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CommentTest" />
         <item itemvalue="JUnit.EventTest.title" />
       </list>
     </recent_temporary>
