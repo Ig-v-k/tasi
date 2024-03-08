@@ -32,7 +32,7 @@ public final class TmplPage implements Page {
         return header(
                 nav(
                         a("Home").withHref("/"),
-                        a("Github").withHref("https://github.com/Ig-v-k/cstat")),
+                        a("Github").withHref("https://github.com/Ig-v-k/tasi")),
                 h1,
                 p
         );
@@ -41,7 +41,7 @@ public final class TmplPage implements Page {
     private static FooterTag ftr() {
         return footer(
                 p(join("Made by ", a("@Ig-v-k").withHref("https://github.com/Ig-v-k"), ", 2024")),
-                nav(a("GitHub").withHref("https://github.com/Ig-v-k/cstat"))
+                nav(a("GitHub").withHref("https://github.com/Ig-v-k/tasi"))
         );
     }
 
@@ -53,7 +53,7 @@ public final class TmplPage implements Page {
                         meta().withName("viewport").withContent("width=device-width, initial-scale=1.0"),
                         meta().withName("keywords").withContent("statistic, progress, government"),
                         meta().withName("description").withContent("Country statistic"),
-                        title(title.isEmpty() ? "cstat" : title),
+                        title(title.isEmpty() ? "tasi" : title),
                         link().withRel("stylesheet").withHref("/css/simple.min.css"),
                         link().withRel("stylesheet").withHref("/css/style.css"),
                         link().withRel("icon").withType("image/png").withHref("/images/logo/logo_32.png")
