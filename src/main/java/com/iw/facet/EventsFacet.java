@@ -19,8 +19,9 @@ public final class EventsFacet implements Facet<MainTag> {
 
     @Override
     public Tag<MainTag> tag() {
-        return main(table(each(events, e -> tr(
+        return main(table(tbody(each(events, (i, e) -> tr(
+                td(String.valueOf(i + 1)),
                 td(e.title())
-        ))));
+        )))));
     }
 }
