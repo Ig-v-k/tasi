@@ -2,6 +2,12 @@ package com.iw.page;
 
 import com.iw.Container;
 import com.iw.Page;
+import com.iw.container.SqlContainer;
+import com.iw.event.SqlEvent;
+import com.iw.facet.EventsFacet;
+import com.iw.jdbc.PsqlJDBC;
+
+import java.util.ArrayList;
 
 public final class HomePage implements Page {
 
@@ -17,6 +23,8 @@ public final class HomePage implements Page {
                 "tasi",
                 "tasi",
                 "Bug report manager",
-                new HomeFacet());
+                new EventsFacet(new ArrayList<>(){{
+                    add(new SqlEvent(container, 1));
+                }})).render();
     }
 }
