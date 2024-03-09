@@ -54,7 +54,24 @@
       <recent name="C:\Users\iw\intellijidea_workspace\tasi\src\main\resources\assets\public\css" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FacetTest.render">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
+      <envs>
+        <env name="username" value="postgres" />
+        <env name="password" value="postgres" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.iw.App" />
+      <module name="tasi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CommentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tasi" />
       <extension name="coverage">
@@ -130,6 +147,7 @@
       <item itemvalue="JUnit.CommentTest" />
       <item itemvalue="JUnit.FacetTest.render" />
       <item itemvalue="JUnit.EventTest.title" />
+      <item itemvalue="Application.App" />
     </list>
     <recent_temporary>
       <list>
