@@ -143,11 +143,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.App" />
       <item itemvalue="JUnit.test_env" />
       <item itemvalue="JUnit.CommentTest" />
       <item itemvalue="JUnit.FacetTest.render" />
       <item itemvalue="JUnit.EventTest.title" />
-      <item itemvalue="Application.App" />
     </list>
     <recent_temporary>
       <list>
