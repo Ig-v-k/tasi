@@ -1,11 +1,10 @@
 package com.iw.page;
 
 import com.iw.Container;
+import com.iw.Events;
 import com.iw.Page;
-import com.iw.event.SqlEvent;
+import com.iw.events.SqlEvents;
 import com.iw.facet.EventsFacet;
-
-import java.util.ArrayList;
 
 public final class HomePage implements Page {
 
@@ -17,12 +16,11 @@ public final class HomePage implements Page {
 
     @Override
     public String render() {
+        final Events events = new SqlEvents(container);
         return new TmplPage(
                 "tasi",
                 "tasi",
                 "Bug report manager",
-                new EventsFacet(new ArrayList<>() {{
-                    add(new SqlEvent(container, 1));
-                }})).render();
+                new EventsFacet(events.all())).render();
     }
 }
