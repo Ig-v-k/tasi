@@ -1,23 +1,30 @@
 package com.iw.page;
 
+import com.iw.Container;
 import com.iw.Event;
 import com.iw.Page;
+import com.iw.comments.SqlComments;
+import com.iw.event.SqlEvent;
+import com.iw.facet.EventFacet;
 
 public final class EventPage implements Page {
 
-    private final Event event;
+    private final Container container;
+    private final int id;
 
-    public EventPage(Event event) {
-        this.event = event;
+    public EventPage(Container container, int id) {
+        this.container = container;
+        this.id = id;
     }
 
     @Override
     public String render() {
+        final Event event = new SqlEvent(container, id);
         final String title = event.title();
         return new TmplPage(
                 title,
                 title,
                 String.format("About %s", title),
-                new EventFacet(event));
+                new EventFacet(new SqlComments(container))).render();
     }
 }

@@ -1,20 +1,21 @@
 package com.iw.facet;
 
-import com.iw.Event;
+import com.iw.Comments;
 import com.iw.Facet;
+import j2html.TagCreator;
 import j2html.tags.Tag;
 import j2html.tags.specialized.MainTag;
 
 public final class EventFacet implements Facet<MainTag> {
 
-    private final Event event;
+    private final Comments comments;
 
-    public EventFacet(Event event) {
-        this.event = event;
+    public EventFacet(Comments comments) {
+        this.comments = comments;
     }
 
     @Override
     public Tag<MainTag> tag() {
-        return main();
+        return TagCreator.main();
     }
 }
