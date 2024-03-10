@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="608e34ba-2fa9-46c0-9b16-c35093c31c64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/Events.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/events/SqlEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/events/SqlEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/facet/ActionsFacet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/facet/ActionsFacet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/page/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/page/HomePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,19 +173,5 @@
       <updated>1709460207008</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iw/App.java</url>
-          <line>17</line>
-          <properties>
-            <option name="lambda-ordinal" value="0" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

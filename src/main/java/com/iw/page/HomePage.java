@@ -1,23 +1,20 @@
 package com.iw.page;
 
-import com.iw.Container;
 import com.iw.Events;
 import com.iw.Page;
-import com.iw.events.SqlEvents;
 import com.iw.facet.ActionsFacet;
 import com.iw.facet.EventsFacet;
 
 public final class HomePage implements Page {
 
-    private final Container container;
+    private final Events events;
 
-    public HomePage(Container container) {
-        this.container = container;
+    public HomePage(final Events events) {
+        this.events = events;
     }
 
     @Override
     public String render() {
-        final Events events = new SqlEvents(container);
         return new TmplPage(
                 "tasi",
                 "tasi",

@@ -1,6 +1,7 @@
 package com.iw;
 
 import com.iw.container.HikariContainer;
+import com.iw.events.SqlEvents;
 import com.iw.jdbc.PsqlJDBC;
 import com.iw.page.HomePage;
 import io.javalin.Javalin;
@@ -12,10 +13,18 @@ public class App {
         final String username = System.getenv("username");
         final String password = System.getenv("password");
         final Container container = new HikariContainer(new PsqlJDBC(username, password));
-        final Page pHome = new HomePage(container);
+        final Events events = new SqlEvents(container);
+        final Page pHome = new HomePage(events);
         Javalin.create(cfg -> cfg.staticFiles.add("/assets/public", Location.CLASSPATH))
                 .get("/", ctx -> ctx.html(pHome.render()))
-                .post("/events", ctx -> ctx.status(201))
+                .post("/add", ctx -> {
+                    final String title = ctx.formParam("title");
+                    if (events.add(title)) {
+                        ctx.redirect(title);
+                    } else {
+                        ctx.result("Create fail. Reload page.");
+                    }
+                })
                 .error(HttpStatus.NOT_FOUND, ctx -> ctx.result("404. Page not found"))
                 .start(8080);
     }
