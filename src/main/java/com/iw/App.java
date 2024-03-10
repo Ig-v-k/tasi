@@ -17,7 +17,7 @@ public class App {
         final Page pHome = new HomePage(events);
         Javalin.create(cfg -> cfg.staticFiles.add("/assets/public", Location.CLASSPATH))
                 .get("/", ctx -> ctx.html(pHome.render()))
-                .post("/add", ctx -> {
+                .post("/events/create", ctx -> {
                     final String title = ctx.formParam("title");
                     if (events.add(title)) {
                         ctx.redirect(title);
