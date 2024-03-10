@@ -27,14 +27,17 @@ public final class ActionsFacet implements Facet<MainTag> {
     private DomContent createDlg() {
         return dialog(
                 p(b("Create")),
-                input()
-                        .withType("text")
-                        .withId("title")
-                        .withName("title")
-                        .withPlaceholder("Title")
-                        .withMaxlength("255")
-                        .withSize("10")
-                        .isRequired(),
+                form(
+                        input()
+                                .withType("text")
+                                .withId("title")
+                                .withName("title")
+                                .withPlaceholder("Title")
+                                .withMaxlength("255")
+                                .withSize("10")
+                                .isRequired(),
+                        button("Save").withType("submit")
+                ).withAction("/events").withMethod("post"),
                 form(
                         button("Close")
                 ).withMethod("dialog")
