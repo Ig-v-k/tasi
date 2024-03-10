@@ -4,6 +4,7 @@ import com.iw.Container;
 import com.iw.Events;
 import com.iw.Page;
 import com.iw.events.SqlEvents;
+import com.iw.facet.ActionsFacet;
 import com.iw.facet.EventsFacet;
 
 public final class HomePage implements Page {
@@ -21,6 +22,7 @@ public final class HomePage implements Page {
                 "tasi",
                 "tasi",
                 "Bug report manager",
-                new EventsFacet(events.all())).render();
+                new ActionsFacet(
+                        new EventsFacet(events.all()))).render();
     }
 }

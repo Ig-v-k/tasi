@@ -55,14 +55,14 @@ public final class TmplPage implements Page {
                         meta().withName("description").withContent("Country statistic"),
                         title(title.isEmpty() ? "tasi" : title),
                         link().withRel("stylesheet").withHref("/css/simple.min.css"),
-                        link().withRel("stylesheet").withHref("/css/style.css"),
-                        link().withRel("icon").withType("image/png").withHref("/images/logo/logo_32.png")
+                        link().withRel("icon").withType("image/png").withHref("/images/logo/logo_32.png"),
+                        script().withType("text/javascript").withSrc("/js/main.js")
                 ),
                 body(
                         hdr(headerTitle, headerSubtitle),
                         facet.tag(),
                         ftr()
-                )
+                ).withOnload("onLoad()")
         ).render();
     }
 }
