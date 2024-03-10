@@ -5,10 +5,7 @@ import com.iw.Event;
 import com.iw.Events;
 import com.iw.event.SqlEvent;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +29,19 @@ public final class SqlEvents implements Events {
                 events.add(new SqlEvent(container, id));
             }
             return events;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean add(String title) {
+        final String sql = "INSERT INTO event (title) VALUES (?)";
+        try (final Connection conn = container.conn();
+             final PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setString(1, title);
+            int affected = st.executeUpdate();
+            return affected > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
