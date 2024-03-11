@@ -5,7 +5,9 @@ import com.iw.Event;
 import com.iw.Page;
 import com.iw.comments.SqlComments;
 import com.iw.event.SqlEvent;
-import com.iw.facet.EventFacet;
+import com.iw.facet.CommentActionsFacet;
+import com.iw.facet.CommentsFacet;
+import com.iw.facet.IssueBodyFacet;
 
 public final class EventPage implements Page {
 
@@ -29,6 +31,9 @@ public final class EventPage implements Page {
                 title,
                 title,
                 String.format("About %s", title),
-                new EventFacet(new SqlComments(container))).render();
+                new IssueBodyFacet(
+                        new CommentActionsFacet(
+                                new CommentsFacet(
+                                        new SqlComments(container))))).render();
     }
 }

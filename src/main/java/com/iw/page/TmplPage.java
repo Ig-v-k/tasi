@@ -62,7 +62,7 @@ public final class TmplPage implements Page {
                         hdr(headerTitle, headerSubtitle),
                         facet.tag(),
                         ftr()
-                ).withOnload("onLoad()")
+                )
         ).render();
     }
 }

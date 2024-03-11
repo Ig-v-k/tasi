@@ -1,5 +1,17 @@
-function onLoad() {
+function issueOnLoad() {
+    initAdd();
+}
+
+function eventsOnLoad() {
     initCreate();
+}
+
+function initAdd() {
+    let commentDlg = document.getElementById('commentDlg');
+    let add = document.getElementById('add');
+    add.addEventListener('click', () => {
+        commentDlg.showModal();
+    });
 }
 
 function initCreate() {
@@ -7,5 +19,5 @@ function initCreate() {
     let create = document.getElementById('create');
     create.addEventListener('click', () => {
         createDlg.showModal();
-    })
+    });
 }
