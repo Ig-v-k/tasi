@@ -22,7 +22,7 @@ public final class EventsFacet implements Facet<MainTag> {
         return main(each(events, (i, e) -> {
             final String title = e.title();
             return article(
-                    h2(a(title).withHref("/" + e.id()))
+                    h2(a(title).withHref("/event/" + e.id()))
             );
         }));
     }

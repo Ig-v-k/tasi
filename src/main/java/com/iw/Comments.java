@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Comments {
     List<Comment> all();
-    boolean add(int event, String text);
+    boolean add(final String summary, String text, int event);
 }

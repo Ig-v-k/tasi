@@ -1,5 +1,6 @@
 package com.iw.facet;
 
+import com.iw.Event;
 import com.iw.Facet;
 import j2html.tags.DomContent;
 import j2html.tags.Tag;
@@ -10,17 +11,19 @@ import static j2html.TagCreator.*;
 public final class CommentActionsFacet implements Facet<MainTag> {
 
     private final Facet<? extends Tag<?>> facet;
+    private final int event;
 
-    public CommentActionsFacet(Facet<? extends Tag<?>> facet) {
+    public CommentActionsFacet(Facet<? extends Tag<?>> facet, final int event) {
         this.facet = facet;
+        this.event = event;
     }
 
     @Override
     public Tag<MainTag> tag() {
-        return main(commentDlg(), facet.tag(), ftr());
+        return main(commentDlg(event), facet.tag(), ftr());
     }
 
-    private static DomContent commentDlg() {
+    private static DomContent commentDlg(final int event) {
         return dialog(
                 p(b("Comment")),
                 form(
@@ -40,6 +43,11 @@ public final class CommentActionsFacet implements Facet<MainTag> {
                                 .withMaxlength("255")
                                 .withSize("10")
                                 .isRequired(),
+                        input()
+                                .withType("hidden")
+                                .withId("event")
+                                .withName("event")
+                                .withValue(String.valueOf(event)),
                         button("Save").withType("submit")
                 ).withAction("/comments/add").withMethod("post"),
                 form(

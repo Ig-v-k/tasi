@@ -35,12 +35,13 @@ public final class SqlComments implements Comments {
     }
 
     @Override
-    public boolean add(int event, String text) {
-        final String sql = "INSERT INTO event (event, text) VALUES (?, ?)";
+    public boolean add(final String summary, String text, int event) {
+        final String sql = "INSERT INTO comment (summary, text, event) VALUES (?, ?, ?)";
         try (final Connection conn = container.conn();
              final PreparedStatement st = conn.prepareStatement(sql)) {
-            st.setInt(1, event);
+            st.setString(1, summary);
             st.setString(2, text);
+            st.setInt(3, event);
             int affected = st.executeUpdate();
             return affected > 0;
         } catch (SQLException e) {

@@ -34,6 +34,6 @@ public final class EventPage implements Page {
                 new BodyFacet(
                         new CommentActionsFacet(
                                 new CommentsFacet(
-                                        new SqlComments(container))), "issueOnLoad()")).render();
+                                        new SqlComments(container)), id), "issueOnLoad()")).render();
     }
 }

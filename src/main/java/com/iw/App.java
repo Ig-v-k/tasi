@@ -1,5 +1,6 @@
 package com.iw;
 
+import com.iw.comments.SqlComments;
 import com.iw.container.HikariContainer;
 import com.iw.events.SqlEvents;
 import com.iw.jdbc.PsqlJDBC;
@@ -20,11 +21,22 @@ public class App {
 
         Javalin.create(cfg -> cfg.staticFiles.add("/assets/public", Location.CLASSPATH))
                 .get("/", ctx -> ctx.html(pHome.render()))
-                .get("/{id}", ctx -> ctx.html(new EventPage(container, ctx.pathParam("id")).render()))
+                .get("/event/{id}", ctx -> ctx.html(new EventPage(container, ctx.pathParam("id")).render()))
                 .post("/events/create", ctx -> {
                     final String title = ctx.formParam("title");
                     if (events.add(title)) {
-                        ctx.redirect(title);
+                        final Event event = events.byTitle(title);
+                        ctx.redirect("/event/" + event.id());
+                    } else {
+                        ctx.result("Create fail. Reload page.");
+                    }
+                })
+                .post("/comments/add", ctx -> {
+                    final String summary = ctx.formParam("summary");
+                    final String text = ctx.formParam("text");
+                    final Integer event = ctx.formParamAsClass("event", Integer.class).get();
+                    if (new SqlComments(container).add(summary, text, event)) {
+                        ctx.redirect("/event/" + event);
                     } else {
                         ctx.result("Create fail. Reload page.");
                     }

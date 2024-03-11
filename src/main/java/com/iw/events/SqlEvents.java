@@ -7,6 +7,7 @@ import com.iw.event.SqlEvent;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public final class SqlEvents implements Events {
@@ -29,6 +30,23 @@ public final class SqlEvents implements Events {
                 events.add(new SqlEvent(container, id));
             }
             return events;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Event byTitle(final String title) {
+        final String query = String.format("SELECT * FROM event WHERE title = '%s'", title);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                final int id = rs.getInt("id");
+                return new SqlEvent(container, id);
+            } else {
+                return null;
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
