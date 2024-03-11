@@ -22,7 +22,7 @@ public final class EventFacet implements Facet<MainTag> {
     public Tag<MainTag> tag() {
         final List<Comment> list = comments.all();
         return main(each(list, c -> details(
-                summary(c.title()),
+                summary(c.summary()),
                 c.text()
         )));
     }

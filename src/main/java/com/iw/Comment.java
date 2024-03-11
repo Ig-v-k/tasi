@@ -5,5 +5,6 @@ public interface Comment {
 
     int event();
 
+    String summary();
     String text();
 }
