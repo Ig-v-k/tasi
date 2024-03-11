@@ -1,10 +1,14 @@
 package com.iw.facet;
 
+import com.iw.Comment;
 import com.iw.Comments;
 import com.iw.Facet;
-import j2html.TagCreator;
 import j2html.tags.Tag;
 import j2html.tags.specialized.MainTag;
+
+import java.util.List;
+
+import static j2html.TagCreator.*;
 
 public final class EventFacet implements Facet<MainTag> {
 
@@ -16,6 +20,10 @@ public final class EventFacet implements Facet<MainTag> {
 
     @Override
     public Tag<MainTag> tag() {
-        return TagCreator.main();
+        final List<Comment> list = comments.all();
+        return main(each(list, c -> details(
+                summary(c.title()),
+                c.text()
+        )));
     }
 }
