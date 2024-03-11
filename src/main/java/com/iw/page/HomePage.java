@@ -22,6 +22,6 @@ public final class HomePage implements Page {
                 "Bug report manager",
                 new BodyFacet(
                         new EventActionsFacet(
-                                new EventsFacet(events.all())), "eventsOnLoad")).render();
+                                new EventsFacet(events.all())), "eventsOnLoad()")).render();
     }
 }
