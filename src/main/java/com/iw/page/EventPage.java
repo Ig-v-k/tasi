@@ -12,6 +12,10 @@ public final class EventPage implements Page {
     private final Container container;
     private final int id;
 
+    public EventPage(Container container, final String id) {
+        this(container, Integer.parseInt(id));
+    }
+
     public EventPage(Container container, int id) {
         this.container = container;
         this.id = id;

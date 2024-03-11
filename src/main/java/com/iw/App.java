@@ -3,6 +3,7 @@ package com.iw;
 import com.iw.container.HikariContainer;
 import com.iw.events.SqlEvents;
 import com.iw.jdbc.PsqlJDBC;
+import com.iw.page.EventPage;
 import com.iw.page.HomePage;
 import io.javalin.Javalin;
 import io.javalin.http.HttpStatus;
@@ -14,9 +15,12 @@ public class App {
         final String password = System.getenv("password");
         final Container container = new HikariContainer(new PsqlJDBC(username, password));
         final Events events = new SqlEvents(container);
+
         final Page pHome = new HomePage(events);
+
         Javalin.create(cfg -> cfg.staticFiles.add("/assets/public", Location.CLASSPATH))
                 .get("/", ctx -> ctx.html(pHome.render()))
+                .get("/{id}", ctx -> ctx.html(new EventPage(container, ctx.pathParam("id")).render()))
                 .post("/events/create", ctx -> {
                     final String title = ctx.formParam("title");
                     if (events.add(title)) {
