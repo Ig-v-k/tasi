@@ -20,8 +20,8 @@ public final class HomePage implements Page {
                 "tasi",
                 "tasi",
                 "Bug report manager",
-                new BodyFacet(
+                new BodyFacet("eventsOnLoad()",
                         new EventActionsFacet(
-                                new EventsFacet(events.all())), "eventsOnLoad()")).render();
+                                new EventsFacet(events.all())))).render();
     }
 }

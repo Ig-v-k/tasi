@@ -11,10 +11,10 @@ public final class BodyFacet implements Facet<BodyTag> {
     private final String onLoad;
 
     public BodyFacet(Facet<? extends Tag<?>> facet) {
-        this(facet, "");
+        this("", facet);
     }
 
-    public BodyFacet(Facet<? extends Tag<?>> facet, String onLoad) {
+    public BodyFacet(String onLoad, Facet<? extends Tag<?>> facet) {
         this.facet = facet;
         this.onLoad = onLoad;
     }

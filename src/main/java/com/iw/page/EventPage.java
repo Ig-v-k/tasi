@@ -31,9 +31,9 @@ public final class EventPage implements Page {
                 title,
                 title,
                 String.format("About %s", title),
-                new BodyFacet(
-                        new CommentActionsFacet(
+                new BodyFacet("issueOnLoad()",
+                        new CommentActionsFacet(id,
                                 new CommentsFacet(
-                                        new SqlComments(container)), id), "issueOnLoad()")).render();
+                                        new SqlComments(container))))).render();
     }
 }

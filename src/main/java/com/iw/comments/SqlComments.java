@@ -35,6 +35,23 @@ public final class SqlComments implements Comments {
     }
 
     @Override
+    public List<Comment> byEvent(int event) {
+        final List<Comment> comments = new ArrayList<>();
+        final String query = String.format("SELECT * FROM comment WHERE event = %s", event);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            while (rs.next()) {
+                final int id = rs.getInt("id");
+                comments.add(new SqlComment(container, id));
+            }
+            return comments;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public boolean add(final String summary, String text, int event) {
         final String sql = "INSERT INTO comment (summary, text, event) VALUES (?, ?, ?)";
         try (final Connection conn = container.conn();

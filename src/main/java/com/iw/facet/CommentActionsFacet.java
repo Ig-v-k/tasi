@@ -13,7 +13,7 @@ public final class CommentActionsFacet implements Facet<MainTag> {
     private final Facet<? extends Tag<?>> facet;
     private final int event;
 
-    public CommentActionsFacet(Facet<? extends Tag<?>> facet, final int event) {
+    public CommentActionsFacet(final int event, Facet<? extends Tag<?>> facet) {
         this.facet = facet;
         this.event = event;
     }
