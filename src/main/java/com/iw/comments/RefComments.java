@@ -5,22 +5,29 @@ import com.iw.Comments;
 import com.iw.Container;
 import com.iw.comment.SqlComment;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class SqlComments implements Comments {
+public final class RefComments implements Comments {
 
     private final Container container;
+    private final Comments comments;
+    private final int event;
 
-    public SqlComments(Container container) {
+    public RefComments(Container container, int event) {
         this.container = container;
+        this.comments = new SqlComments(container);
+        this.event = event;
     }
 
     @Override
     public List<Comment> all() {
         final List<Comment> comments = new ArrayList<>();
-        final String query = "SELECT * FROM comment";
+        final String query = String.format("SELECT * FROM comment WHERE event = %s", event);
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();
              final ResultSet rs = st.executeQuery(query)) {
@@ -35,17 +42,7 @@ public final class SqlComments implements Comments {
     }
 
     @Override
-    public boolean add(final String summary, String text, int event) {
-        final String sql = "INSERT INTO comment (summary, text, event) VALUES (?, ?, ?)";
-        try (final Connection conn = container.conn();
-             final PreparedStatement st = conn.prepareStatement(sql)) {
-            st.setString(1, summary);
-            st.setString(2, text);
-            st.setInt(3, event);
-            int affected = st.executeUpdate();
-            return affected > 0;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public boolean add(String summary, String text, int event) {
+        return comments.add(summary, text, event);
     }
 }

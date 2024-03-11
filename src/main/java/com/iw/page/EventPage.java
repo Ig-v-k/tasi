@@ -3,6 +3,7 @@ package com.iw.page;
 import com.iw.Container;
 import com.iw.Event;
 import com.iw.Page;
+import com.iw.comments.RefComments;
 import com.iw.comments.SqlComments;
 import com.iw.event.SqlEvent;
 import com.iw.facet.BodyFacet;
@@ -34,6 +35,6 @@ public final class EventPage implements Page {
                 new BodyFacet("issueOnLoad()",
                         new CommentActionsFacet(id,
                                 new CommentsFacet(
-                                        new SqlComments(container))))).render();
+                                        new RefComments(container, id))))).render();
     }
 }
