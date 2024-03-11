@@ -2,7 +2,7 @@ package com.iw.page;
 
 import com.iw.Events;
 import com.iw.Page;
-import com.iw.facet.ActionsFacet;
+import com.iw.facet.EventActionsFacet;
 import com.iw.facet.EventsFacet;
 
 public final class HomePage implements Page {
@@ -19,7 +19,7 @@ public final class HomePage implements Page {
                 "tasi",
                 "tasi",
                 "Bug report manager",
-                new ActionsFacet(
+                new EventActionsFacet(
                         new EventsFacet(events.all()))).render();
     }
 }
