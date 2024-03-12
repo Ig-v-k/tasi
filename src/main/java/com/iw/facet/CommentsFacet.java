@@ -33,7 +33,11 @@ public final class CommentsFacet implements Facet<DivTag> {
                     summary(c.summary()),
                     text(c.text()),
                     hr(),
-                    footer(button("Edit"))
+                    footer(join(
+                            a("Edit").withHref("#"),
+                            " • ",
+                            a("Delete").withHref("#")
+                    ))
             ));
         }
     }
