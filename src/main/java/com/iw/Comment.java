@@ -3,7 +3,7 @@ package com.iw;
 public interface Comment {
     int id();
 
-    int event();
+    int issue();
 
     String summary();
     String text();

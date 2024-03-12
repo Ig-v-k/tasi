@@ -1,6 +1,6 @@
 package com.iw.facet;
 
-import com.iw.Event;
+import com.iw.Issue;
 import com.iw.Facet;
 import j2html.tags.Tag;
 import j2html.tags.specialized.MainTag;
@@ -9,20 +9,20 @@ import java.util.List;
 
 import static j2html.TagCreator.*;
 
-public final class EventsFacet implements Facet<MainTag> {
+public final class IssuesFacet implements Facet<MainTag> {
 
-    private final List<Event> events;
+    private final List<Issue> issues;
 
-    public EventsFacet(List<Event> events) {
-        this.events = events;
+    public IssuesFacet(List<Issue> issues) {
+        this.issues = issues;
     }
 
     @Override
     public Tag<MainTag> tag() {
-        return main(each(events, (i, e) -> {
+        return main(each(issues, (i, e) -> {
             final String title = e.title();
             return article(
-                    h2(a(title).withHref("/event/" + e.id()))
+                    h2(a(title).withHref("/issue/" + e.id()))
             );
         }));
     }

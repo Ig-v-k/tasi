@@ -1,33 +1,32 @@
 package com.iw.page;
 
 import com.iw.Container;
-import com.iw.Event;
+import com.iw.Issue;
 import com.iw.Page;
 import com.iw.comments.RefComments;
-import com.iw.comments.SqlComments;
-import com.iw.event.SqlEvent;
+import com.iw.issue.SqlIssue;
 import com.iw.facet.BodyFacet;
 import com.iw.facet.CommentActionsFacet;
 import com.iw.facet.CommentsFacet;
 
-public final class EventPage implements Page {
+public final class IssuePage implements Page {
 
     private final Container container;
     private final int id;
 
-    public EventPage(Container container, final String id) {
+    public IssuePage(Container container, final String id) {
         this(container, Integer.parseInt(id));
     }
 
-    public EventPage(Container container, int id) {
+    public IssuePage(Container container, int id) {
         this.container = container;
         this.id = id;
     }
 
     @Override
     public String render() {
-        final Event event = new SqlEvent(container, id);
-        final String title = event.title();
+        final Issue issue = new SqlIssue(container, id);
+        final String title = issue.title();
         return new TmplPage(
                 title,
                 title,

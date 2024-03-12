@@ -7,11 +7,11 @@ import j2html.tags.specialized.MainTag;
 
 import static j2html.TagCreator.*;
 
-public final class EventActionsFacet implements Facet<MainTag> {
+public final class IssueActionsFacet implements Facet<MainTag> {
 
     private final Facet<? extends Tag<?>> facet;
 
-    public EventActionsFacet(Facet<? extends Tag<?>> facet) {
+    public IssueActionsFacet(Facet<? extends Tag<?>> facet) {
         this.facet = facet;
     }
 
@@ -37,7 +37,7 @@ public final class EventActionsFacet implements Facet<MainTag> {
                                 .withSize("10")
                                 .isRequired(),
                         button("Save").withType("submit")
-                ).withAction("/events/create").withMethod("post"),
+                ).withAction("/issues/create").withMethod("post"),
                 form(
                         button("Close")
                 ).withMethod("dialog")

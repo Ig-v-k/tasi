@@ -2,7 +2,7 @@ function issueOnLoad() {
     initAdd();
 }
 
-function eventsOnLoad() {
+function issuesOnLoad() {
     initCreate();
 }
 

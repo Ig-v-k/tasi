@@ -1,17 +1,17 @@
 package com.iw.page;
 
-import com.iw.Events;
+import com.iw.Issues;
 import com.iw.Page;
 import com.iw.facet.BodyFacet;
-import com.iw.facet.EventActionsFacet;
-import com.iw.facet.EventsFacet;
+import com.iw.facet.IssueActionsFacet;
+import com.iw.facet.IssuesFacet;
 
 public final class HomePage implements Page {
 
-    private final Events events;
+    private final Issues issues;
 
-    public HomePage(final Events events) {
-        this.events = events;
+    public HomePage(final Issues issues) {
+        this.issues = issues;
     }
 
     @Override
@@ -20,8 +20,8 @@ public final class HomePage implements Page {
                 "tasi",
                 "tasi",
                 "Bug report manager",
-                new BodyFacet("eventsOnLoad()",
-                        new EventActionsFacet(
-                                new EventsFacet(events.all())))).render();
+                new BodyFacet("issuesOnLoad()",
+                        new IssueActionsFacet(
+                                new IssuesFacet(issues.all())))).render();
     }
 }

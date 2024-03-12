@@ -6,10 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="608e34ba-2fa9-46c0-9b16-c35093c31c64" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/Comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/Comments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/Issues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/comment/SqlComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/comment/SqlComment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/comments/RefComments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/comments/RefComments.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/comments/SqlComments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/comments/SqlComments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/event/SqlEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/issue/SqlIssue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/events/SqlEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/issues/SqlIssues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/facet/CommentActionsFacet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/facet/CommentActionsFacet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/facet/CommentsFacet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/facet/CommentsFacet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/facet/EventActionsFacet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/facet/IssueActionsFacet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/facet/EventsFacet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/facet/EventsFacet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/page/EventPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/page/EventPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/page/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/page/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/iw/EventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/iw/IssueTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,26 +111,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EventTest.title" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tasi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.iw" />
-      <option name="MAIN_CLASS_NAME" value="com.iw.EventTest" />
-      <option name="METHOD_NAME" value="title" />
-      <option name="TEST_OBJECT" value="method" />
-      <envs>
-        <env name="username" value="postgres" />
-        <env name="password" value="postgres" />
-      </envs>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FacetTest.render" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tasi" />
       <extension name="coverage">
@@ -130,6 +123,26 @@
       <option name="MAIN_CLASS_NAME" value="com.iw.FacetTest" />
       <option name="METHOD_NAME" value="render" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IssueTest.title" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tasi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iw" />
+      <option name="MAIN_CLASS_NAME" value="com.iw.IssueTest" />
+      <option name="METHOD_NAME" value="title" />
+      <option name="TEST_OBJECT" value="method" />
+      <envs>
+        <env name="username" value="postgres" />
+        <env name="password" value="postgres" />
+      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,15 +164,15 @@
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="JUnit.test_env" />
+      <item itemvalue="JUnit.IssueTest.title" />
       <item itemvalue="JUnit.CommentTest" />
       <item itemvalue="JUnit.FacetTest.render" />
-      <item itemvalue="JUnit.EventTest.title" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.FacetTest.render" />
         <item itemvalue="JUnit.CommentTest" />
-        <item itemvalue="JUnit.EventTest.title" />
+        <item itemvalue="JUnit.IssueTest.title" />
       </list>
     </recent_temporary>
   </component>

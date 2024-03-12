@@ -16,18 +16,18 @@ public final class RefComments implements Comments {
 
     private final Container container;
     private final Comments comments;
-    private final int event;
+    private final int issue;
 
-    public RefComments(Container container, int event) {
+    public RefComments(Container container, int issue) {
         this.container = container;
         this.comments = new SqlComments(container);
-        this.event = event;
+        this.issue = issue;
     }
 
     @Override
     public List<Comment> all() {
         final List<Comment> comments = new ArrayList<>();
-        final String query = String.format("SELECT * FROM comment WHERE event = %s", event);
+        final String query = String.format("SELECT * FROM comment WHERE issue = %s", issue);
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();
              final ResultSet rs = st.executeQuery(query)) {
@@ -42,7 +42,7 @@ public final class RefComments implements Comments {
     }
 
     @Override
-    public boolean add(String summary, String text, int event) {
-        return comments.add(summary, text, event);
+    public boolean add(String summary, String text, int issue) {
+        return comments.add(summary, text, issue);
     }
 }

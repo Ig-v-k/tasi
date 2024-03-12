@@ -28,8 +28,8 @@ public final class CommentTest extends AbsContainerTest {
     }
 
     @Test
-    public void event() {
-        final int event = comment.event();
-        assertThat(event).isEqualTo(1);
+    public void issue() {
+        final int issue = comment.issue();
+        assertThat(issue).isEqualTo(1);
     }
 }

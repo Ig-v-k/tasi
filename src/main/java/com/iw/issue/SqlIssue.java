@@ -1,7 +1,7 @@
-package com.iw.event;
+package com.iw.issue;
 
 import com.iw.Container;
-import com.iw.Event;
+import com.iw.Issue;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,12 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 
-public final class SqlEvent implements Event {
+public final class SqlIssue implements Issue {
 
     private final Container container;
     private final int id;
 
-    public SqlEvent(Container container, int id) {
+    public SqlIssue(Container container, int id) {
         this.container = container;
         this.id = id;
     }
@@ -26,7 +26,7 @@ public final class SqlEvent implements Event {
 
     @Override
     public String title() {
-        final String query = String.format("SELECT title FROM event WHERE id = %s", id);
+        final String query = String.format("SELECT title FROM issue WHERE id = %s", id);
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();
              final ResultSet rs = st.executeQuery(query)) {

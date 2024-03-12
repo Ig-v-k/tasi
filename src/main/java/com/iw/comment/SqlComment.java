@@ -25,17 +25,17 @@ public final class SqlComment implements Comment {
     }
 
     @Override
-    public int event() {
-        final String query = String.format("SELECT event FROM comment WHERE id = %s", id);
+    public int issue() {
+        final String query = String.format("SELECT issue FROM comment WHERE id = %s", id);
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();
              final ResultSet rs = st.executeQuery(query)) {
             if (rs.next()) {
-                final int event = rs.getInt("event");
-                return event;
+                final int issue = rs.getInt("issue");
+                return issue;
             } else {
                 final String mes = String.format(
-                        "Cannot find column 'event' with query: \"%s\", and arguments: %s",
+                        "Cannot find column 'issue' with query: \"%s\", and arguments: %s",
                         query, Arrays.toString(new int[]{id}));
                 throw new RuntimeException(mes);
             }

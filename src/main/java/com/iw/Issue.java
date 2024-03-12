@@ -1,6 +1,6 @@
 package com.iw;
 
-public interface Event {
+public interface Issue {
     int id();
 
     String title();
