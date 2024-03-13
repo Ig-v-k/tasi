@@ -1,5 +1,6 @@
 function issueOnLoad() {
     initAdd();
+    initEdits();
 }
 
 function issuesOnLoad() {
@@ -7,11 +8,21 @@ function issuesOnLoad() {
 }
 
 function initAdd() {
-    let commentDlg = document.getElementById('commentDlg');
+    let addCommentDlg = document.getElementById('addCommentDlg');
     let add = document.getElementById('addCommentBottom');
     add.addEventListener('click', () => {
-        commentDlg.showModal();
+        addCommentDlg.showModal();
     });
+}
+
+function initEdits() {
+    let links = document.getElementsByClassName('editComment');
+    for (var i = 0; links[i]; i++) {
+        let link = links[i];
+        link.addEventListener('click', () => {
+            openEditCommentDialog(link);
+        });
+    }
 }
 
 function initCreate() {
@@ -20,4 +31,9 @@ function initCreate() {
     create.addEventListener('click', () => {
         createDlg.showModal();
     });
+}
+
+function openEditCommentDialog(link) {
+    let editCommentDlg = document.getElementById('editCommentDlg');
+    editCommentDlg.showModal();
 }

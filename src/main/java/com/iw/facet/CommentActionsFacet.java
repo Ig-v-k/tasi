@@ -19,7 +19,7 @@ public final class CommentActionsFacet implements Facet<MainTag> {
 
     @Override
     public Tag<MainTag> tag() {
-        return main(commentDlg(issue), facet.tag(), ftr());
+        return main(commentDlg(issue), editCommentDlg(issue), facet.tag(), ftr());
     }
 
     private static DomContent commentDlg(final int issue) {
@@ -53,6 +53,44 @@ public final class CommentActionsFacet implements Facet<MainTag> {
                         button("Close")
                 ).withMethod("dialog")
         ).withId("commentDlg");
+    }
+
+    private static DomContent editCommentDlg(final int issue) {
+        return dialog(
+                p(b("Edit comment")),
+                form(
+                        input()
+                                .withType("text")
+                                .withId("summary")
+                                .withName("summary")
+                                .withPlaceholder("Summary")
+                                .withMaxlength("255")
+                                .withSize("10")
+                                .isRequired(),
+                        input()
+                                .withType("text")
+                                .withId("text")
+                                .withName("text")
+                                .withPlaceholder("Text")
+                                .withMaxlength("255")
+                                .withSize("10")
+                                .isRequired(),
+                        input()
+                                .withType("hidden")
+                                .withId("issue")
+                                .withName("issue")
+                                .withValue(String.valueOf(issue)),
+                        input()
+                                .withType("hidden")
+                                .withId("comment")
+                                .withName("comment")
+                                .withValue("-1"),
+                        button("Save").withType("submit")
+                ).withAction("/comments/update").withMethod("update"),
+                form(
+                        button("Close")
+                ).withMethod("dialog")
+        ).withId("editCommentDlg");
     }
 
     private static DomContent ftr() {
