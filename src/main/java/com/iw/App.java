@@ -4,6 +4,7 @@ import com.iw.comments.SqlComments;
 import com.iw.container.HikariContainer;
 import com.iw.issues.SqlIssues;
 import com.iw.jdbc.PsqlJDBC;
+import com.iw.logs.SqlLogs;
 import com.iw.page.IssuePage;
 import com.iw.page.HomePage;
 import io.javalin.Javalin;
@@ -16,6 +17,7 @@ public class App {
         final String password = System.getenv("password");
         final Container container = new HikariContainer(new PsqlJDBC(username, password));
         final Issues issues = new SqlIssues(container);
+        final Logs logs = new SqlLogs(container);
 
         final Page pHome = new HomePage(issues);
 
@@ -26,6 +28,7 @@ public class App {
                     final String title = ctx.formParam("title");
                     if (issues.add(title)) {
                         final Issue issue = issues.byTitle(title);
+                        logs.add("Issue created: " + title);
                         ctx.redirect("/issue/" + issue.id());
                     } else {
                         ctx.result("Create fail. Reload page.");
@@ -36,6 +39,7 @@ public class App {
                     final String text = ctx.formParam("text");
                     final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
                     if (new SqlComments(container).add(summary, text, issue)) {
+                        logs.add("Comment added: " + summary);
                         ctx.redirect("/issue/" + issue);
                     } else {
                         ctx.result("Create fail. Reload page.");
