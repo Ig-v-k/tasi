@@ -48,11 +48,11 @@ public final class CommentActionsFacet implements Facet<MainTag> {
                                 .withName("issue")
                                 .withValue(String.valueOf(issue)),
                         button("Save").withType("submit")
-                ).withAction("/comments/add").withMethod("post"),
+                ).withAction("/comment").withMethod("post"),
                 form(
                         button("Close")
                 ).withMethod("dialog")
-        ).withId("commentDlg");
+        ).withId("addCommentDlg");
     }
 
     private static DomContent editCommentDlg(final int issue) {
@@ -86,7 +86,7 @@ public final class CommentActionsFacet implements Facet<MainTag> {
                                 .withName("comment")
                                 .withValue("-1"),
                         button("Save").withType("submit")
-                ).withAction("/comments/update").withMethod("update"),
+                ).withAction("/comment").withMethod("put"),
                 form(
                         button("Close")
                 ).withMethod("dialog")
