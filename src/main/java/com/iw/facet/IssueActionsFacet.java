@@ -37,7 +37,7 @@ public final class IssueActionsFacet implements Facet<MainTag> {
                                 .withSize("10")
                                 .isRequired(),
                         button("Save").withType("submit")
-                ).withAction("/issues/create").withMethod("post"),
+                ).withAction("/issue/create").withMethod("post"),
                 form(
                         button("Close")
                 ).withMethod("dialog")
