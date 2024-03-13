@@ -31,7 +31,7 @@ public final class CommentsFacet implements Facet<DivTag> {
         } else {
             return each(comments, c -> details(
                     summary(c.summary()),
-                    text(c.text()),
+                    p(c.text()),
                     hr(),
                     footer(join(
                             a("Edit").withHref("#"),
