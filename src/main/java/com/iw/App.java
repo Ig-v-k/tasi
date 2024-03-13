@@ -27,7 +27,7 @@ public class App {
         Javalin.create(cfg -> {
                     cfg.staticFiles.add("/assets/public", Location.CLASSPATH);
                     cfg.router.apiBuilder(() -> path("/comment", () -> {
-                        post(ctx -> {
+                        post("/add", ctx -> {
                             final String summary = ctx.formParam("summary");
                             final String text = ctx.formParam("text");
                             final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
@@ -38,12 +38,12 @@ public class App {
                                 ctx.result("Create fail. Reload page.");
                             }
                         });
-                        put(ctx -> {
+                        post("/update", ctx -> {
                             final String summary = ctx.formParam("summary");
                             final String text = ctx.formParam("text");
                             final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
                             final Integer comment = ctx.formParamAsClass("comment", Integer.class).get();
-                            if (new SqlComment(container, comment).update(summary, text, issue)) {
+                            if (new SqlComment(container, comment).update(issue, summary, text)) {
                                 logs.add("Comment updated to: " + summary);
                                 ctx.redirect("/issue/" + issue);
                             } else {

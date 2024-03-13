@@ -7,4 +7,5 @@ public interface Comment {
 
     String summary();
     String text();
+    boolean update(int issue, String summary, String text);
 }

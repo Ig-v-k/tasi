@@ -48,7 +48,7 @@ public final class CommentActionsFacet implements Facet<MainTag> {
                                 .withName("issue")
                                 .withValue(String.valueOf(issue)),
                         button("Save").withType("submit")
-                ).withAction("/comment").withMethod("post"),
+                ).withAction("/comment/add").withMethod("post"),
                 form(
                         button("Close")
                 ).withMethod("dialog")
@@ -86,7 +86,7 @@ public final class CommentActionsFacet implements Facet<MainTag> {
                                 .withName("comment")
                                 .withValue("-1"),
                         button("Save").withType("submit")
-                ).withAction("/comment").withMethod("put"),
+                ).withAction("/comment/update").withMethod("post"),
                 form(
                         button("Close")
                 ).withMethod("dialog")

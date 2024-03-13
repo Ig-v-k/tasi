@@ -3,10 +3,7 @@ package com.iw.comment;
 import com.iw.Comment;
 import com.iw.Container;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Arrays;
 
 public final class SqlComment implements Comment {
@@ -79,6 +76,22 @@ public final class SqlComment implements Comment {
                         query, Arrays.toString(new int[]{id}));
                 throw new RuntimeException(mes);
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean update(int issue, String summary, String text) {
+        final String sql = "UPDATE comment SET issue = ?, summary = ?, text = ? WHERE id = ?";
+        try (final Connection conn = container.conn();
+             final PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setInt(1, issue);
+            st.setString(2, summary);
+            st.setString(3, text);
+            st.setInt(4, id);
+            int affected = st.executeUpdate();
+            return affected > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
