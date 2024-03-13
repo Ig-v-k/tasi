@@ -8,7 +8,7 @@ function issuesOnLoad() {
 
 function initAdd() {
     let commentDlg = document.getElementById('commentDlg');
-    let add = document.getElementById('add');
+    let add = document.getElementById('addCommentBottom');
     add.addEventListener('click', () => {
         commentDlg.showModal();
     });

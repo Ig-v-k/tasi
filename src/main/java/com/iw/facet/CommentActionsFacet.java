@@ -56,6 +56,6 @@ public final class CommentActionsFacet implements Facet<MainTag> {
     }
 
     private static DomContent ftr() {
-        return button("Add").withId("add");
+        return button("Add comment").withId("addCommentBottom");
     }
 }
