@@ -26,44 +26,48 @@ public class App {
 
         Javalin.create(cfg -> {
                     cfg.staticFiles.add("/assets/public", Location.CLASSPATH);
-                    cfg.router.apiBuilder(() -> path("/comment", () -> {
-                        post("/add", ctx -> {
-                            final String summary = ctx.formParam("summary");
-                            final String text = ctx.formParam("text");
-                            final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
-                            if (new SqlComments(container).add(summary, text, issue)) {
-                                logs.add("Comment added: " + summary);
-                                ctx.redirect("/issue/" + issue);
-                            } else {
-                                ctx.result("Create fail. Reload page.");
-                            }
+                    cfg.router.apiBuilder(() -> {
+                        path("/comment", () -> {
+                            post("/add", ctx -> {
+                                final String summary = ctx.formParam("summary");
+                                final String text = ctx.formParam("text");
+                                final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
+                                if (new SqlComments(container).add(summary, text, issue)) {
+                                    logs.add("Comment added: " + summary);
+                                    ctx.redirect("/issue/" + issue);
+                                } else {
+                                    ctx.result("Create fail. Reload page.");
+                                }
+                            });
+                            post("/update", ctx -> {
+                                final String summary = ctx.formParam("summary");
+                                final String text = ctx.formParam("text");
+                                final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
+                                final Integer comment = ctx.formParamAsClass("comment", Integer.class).get();
+                                if (new SqlComment(container, comment).update(issue, summary, text)) {
+                                    logs.add("Comment updated to: " + summary);
+                                    ctx.redirect("/issue/" + issue);
+                                } else {
+                                    ctx.result("Update fail. Reload page.");
+                                }
+                            });
                         });
-                        post("/update", ctx -> {
-                            final String summary = ctx.formParam("summary");
-                            final String text = ctx.formParam("text");
-                            final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
-                            final Integer comment = ctx.formParamAsClass("comment", Integer.class).get();
-                            if (new SqlComment(container, comment).update(issue, summary, text)) {
-                                logs.add("Comment updated to: " + summary);
-                                ctx.redirect("/issue/" + issue);
-                            } else {
-                                ctx.result("Update fail. Reload page.");
-                            }
+                        path("/issue", () -> {
+                            post("/create", ctx -> {
+                                final String title = ctx.formParam("title");
+                                if (issues.add(title)) {
+                                    final Issue issue = issues.byTitle(title);
+                                    logs.add("Issue created: " + title);
+                                    ctx.redirect("/issue/" + issue.id());
+                                } else {
+                                    ctx.result("Create fail. Reload page.");
+                                }
+                            });
                         });
-                    }));
+                    });
                 })
                 .get("/", ctx -> ctx.html(pHome.render()))
                 .get("/issue/{id}", ctx -> ctx.html(new IssuePage(container, ctx.pathParam("id")).render()))
-                .post("/issues/create", ctx -> {
-                    final String title = ctx.formParam("title");
-                    if (issues.add(title)) {
-                        final Issue issue = issues.byTitle(title);
-                        logs.add("Issue created: " + title);
-                        ctx.redirect("/issue/" + issue.id());
-                    } else {
-                        ctx.result("Create fail. Reload page.");
-                    }
-                })
                 .error(HttpStatus.NOT_FOUND, ctx -> ctx.result("404. Page not found"))
                 .start(8080);
     }
