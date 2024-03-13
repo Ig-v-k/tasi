@@ -38,7 +38,7 @@ public final class CommentsFacet implements Facet<DivTag> {
                             " • ",
                             a("Delete").withHref("#")
                     ))
-            ));
+            ).withId("comment_" + c.id()));
         }
     }
 }
