@@ -30,7 +30,8 @@ public final class CommentsFacet implements Facet<DivTag> {
             return span("Issue comments empty.");
         } else {
             return each(comments, c -> details(
-                    summary(c.summary()),
+                    summary(":time:"),
+                    p(b(c.summary())),
                     p(c.text()),
                     hr(),
                     footer(join(
