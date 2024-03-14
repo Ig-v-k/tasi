@@ -61,9 +61,8 @@ function openConfirmDeleteCommentDialog(link) {
     let comment = detailsEl.getAttribute('data-comment');
     let summaryText = detailsEl.getElementsByTagName('summary').item(0).innerText;
     let deleteCommentDlg = document.getElementById('deleteCommentDlg');
-    deleteCommentDlg.getElementsByTagName('p')
-        .namedItem('text')
-        .appendChild(document.createTextNode(`Are you sure to delete "${summaryText}"?`));
+    let text = deleteCommentDlg.getElementsByTagName('p').namedItem('text');
+    text.innerText = `Are you sure to delete "${summaryText}"?`;
     deleteCommentDlg.getElementsByTagName('input').namedItem('summary').value = summaryText;
     deleteCommentDlg.getElementsByTagName('input').namedItem('comment').value = comment;
     deleteCommentDlg.showModal();
