@@ -96,4 +96,17 @@ public final class SqlComment implements Comment {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public boolean delete() {
+        final String sql = "DELETE FROM comment WHERE id = ?";
+        try (final Connection conn = container.conn();
+             final PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setInt(1, id);
+            int affected = st.executeUpdate();
+            return affected > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

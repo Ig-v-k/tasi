@@ -19,7 +19,7 @@ public final class CommentActionsFacet implements Facet<MainTag> {
 
     @Override
     public Tag<MainTag> tag() {
-        return main(commentDlg(issue), editCommentDlg(issue), facet.tag(), ftr());
+        return main(commentDlg(issue), editCommentDlg(issue), confirmDeleteCommentDlg(issue), facet.tag(), ftr());
     }
 
     private static DomContent commentDlg(final int issue) {
@@ -91,6 +91,34 @@ public final class CommentActionsFacet implements Facet<MainTag> {
                         button("Close")
                 ).withMethod("dialog")
         ).withId("editCommentDlg");
+    }
+
+    private static DomContent confirmDeleteCommentDlg(final int issue) {
+        return dialog(
+                p(b("Delete comment")),
+                p().withId("text"),
+                form(
+                        input()
+                                .withType("hidden")
+                                .withId("summary")
+                                .withName("summary")
+                                .withValue(""),
+                        input()
+                                .withType("hidden")
+                                .withId("issue")
+                                .withName("issue")
+                                .withValue(String.valueOf(issue)),
+                        input()
+                                .withType("hidden")
+                                .withId("comment")
+                                .withName("comment")
+                                .withValue("-1"),
+                        button("Confirm").withType("submit")
+                ).withAction("/comment/delete").withMethod("post"),
+                form(
+                        button("Close")
+                ).withMethod("dialog")
+        ).withId("deleteCommentDlg");
     }
 
     private static DomContent ftr() {

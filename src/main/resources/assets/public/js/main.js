@@ -1,6 +1,7 @@
 function issueOnLoad() {
     initAdd();
     initEdits();
+    initConfirmDelete();
 }
 
 function issuesOnLoad() {
@@ -25,6 +26,16 @@ function initEdits() {
     }
 }
 
+function initConfirmDelete() {
+    let links = document.getElementsByClassName('deleteComment');
+    for (var i = 0; links[i]; i++) {
+        let link = links[i];
+        link.addEventListener('click', () => {
+            openConfirmDeleteCommentDialog(link);
+        });
+    }
+}
+
 function initCreate() {
     let createDlg = document.getElementById('createDlg');
     let create = document.getElementById('create');
@@ -43,4 +54,17 @@ function openEditCommentDialog(link) {
     editCommentDlg.getElementsByTagName('input').namedItem('text').value = innerText;
     editCommentDlg.getElementsByTagName('input').namedItem('comment').value = comment;
     editCommentDlg.showModal();
+}
+
+function openConfirmDeleteCommentDialog(link) {
+    let detailsEl = link.closest('details');
+    let comment = detailsEl.getAttribute('data-comment');
+    let summaryText = detailsEl.getElementsByTagName('summary').item(0).innerText;
+    let deleteCommentDlg = document.getElementById('deleteCommentDlg');
+    deleteCommentDlg.getElementsByTagName('p')
+        .namedItem('text')
+        .appendChild(document.createTextNode(`Are you sure to delete "${summaryText}"?`));
+    deleteCommentDlg.getElementsByTagName('input').namedItem('summary').value = summaryText;
+    deleteCommentDlg.getElementsByTagName('input').namedItem('comment').value = comment;
+    deleteCommentDlg.showModal();
 }

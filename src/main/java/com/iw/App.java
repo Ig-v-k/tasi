@@ -51,6 +51,17 @@ public class App {
                                     ctx.result("Update fail. Reload page.");
                                 }
                             });
+                            post("/delete", ctx -> {
+                                final String summary = ctx.formParam("summary");
+                                final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
+                                final Integer comment = ctx.formParamAsClass("comment", Integer.class).get();
+                                if (new SqlComment(container, comment).delete()) {
+                                    logs.add("Comment deleted: " + summary);
+                                    ctx.redirect("/issue/" + issue);
+                                } else {
+                                    ctx.result("Delete fail. Reload page.");
+                                }
+                            });
                         });
                         path("/issue", () -> {
                             post("/create", ctx -> {

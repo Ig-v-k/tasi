@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/comment/SqlComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/comment/SqlComment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/iw/facet/CommentActionsFacet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/iw/facet/CommentActionsFacet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/public/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,16 +174,5 @@
       <updated>1709460207008</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/iw/App.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
