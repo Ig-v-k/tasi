@@ -5,23 +5,35 @@ import j2html.TagCreator;
 import j2html.tags.Tag;
 import j2html.tags.specialized.BodyTag;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import static j2html.TagCreator.body;
+import static j2html.TagCreator.each;
+
 public final class BodyFacet implements Facet<BodyTag> {
 
-    private final Facet<? extends Tag<?>> facet;
+    private final List<Facet<? extends Tag<?>>> facets;
     private final String onLoad;
 
-    public BodyFacet(Facet<? extends Tag<?>> facet) {
-        this("", facet);
+    public BodyFacet(Facet<? extends Tag<?>>... facets) {
+        this("", Arrays.asList(facets));
     }
 
-    public BodyFacet(String onLoad, Facet<? extends Tag<?>> facet) {
-        this.facet = facet;
+    public BodyFacet(String onLoad, Facet<? extends Tag<?>>... facets) {
+        this("", Arrays.asList(facets));
+    }
+
+    public BodyFacet(String onLoad, List<Facet<? extends Tag<?>>> facets) {
+        this.facets = facets;
         this.onLoad = onLoad;
     }
 
     @Override
     public Tag<BodyTag> tag() {
-        final BodyTag body = TagCreator.body(facet.tag());
+        final BodyTag body = body(each(facets, f -> f.tag()));
         if (!onLoad.isEmpty()) {
             body.withOnload(onLoad);
         }
