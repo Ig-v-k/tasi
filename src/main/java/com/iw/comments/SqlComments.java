@@ -35,13 +35,15 @@ public final class SqlComments implements Comments {
     }
 
     @Override
-    public boolean add(final String summary, String text, int issue) {
-        final String sql = "INSERT INTO comment (summary, text, issue) VALUES (?, ?, ?)";
+    public boolean add(final String summary, String text, int issue, int reporter, long submit) {
+        final String sql = "INSERT INTO comment (summary, text, issue, reporter, submit) VALUES (?, ?, ?, ?, ?)";
         try (final Connection conn = container.conn();
              final PreparedStatement st = conn.prepareStatement(sql)) {
             st.setString(1, summary);
             st.setString(2, text);
             st.setInt(3, issue);
+            st.setInt(4, reporter);
+            st.setLong(5, submit);
             int affected = st.executeUpdate();
             return affected > 0;
         } catch (SQLException e) {

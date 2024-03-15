@@ -42,7 +42,7 @@ public final class RefComments implements Comments {
     }
 
     @Override
-    public boolean add(String summary, String text, int issue) {
-        return comments.add(summary, text, issue);
+    public boolean add(String summary, String text, int issue, int reporter, long submit) {
+        return comments.add(summary, text, issue, reporter, submit);
     }
 }

@@ -7,7 +7,10 @@ import j2html.tags.DomContent;
 import j2html.tags.Tag;
 import j2html.tags.specialized.DivTag;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import static j2html.TagCreator.*;
 
@@ -30,7 +33,9 @@ public final class CommentsFacet implements Facet<DivTag> {
             return span("Issue comments empty.");
         } else {
             return each(comments, c -> details(
-                    summary(":time:"),
+                    summary(String.format("%s • %s",
+                            c.reporter(),
+                            DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault()).format(new Date(c.submit())))),
                     p(b(c.summary())),
                     p(c.text()),
                     hr(),

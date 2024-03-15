@@ -12,6 +12,9 @@ import io.javalin.Javalin;
 import io.javalin.http.HttpStatus;
 import io.javalin.http.staticfiles.Location;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
@@ -32,7 +35,9 @@ public class App {
                                 final String summary = ctx.formParam("summary");
                                 final String text = ctx.formParam("text");
                                 final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
-                                if (new SqlComments(container).add(summary, text, issue)) {
+                                final int reporter = 1; // TODO: User.class entity table
+                                final long submit = Calendar.getInstance().getTime().getTime();
+                                if (new SqlComments(container).add(summary, text, issue, reporter, submit)) {
                                     logs.add("Comment added: " + summary);
                                     ctx.redirect("/issue/" + issue);
                                 } else {
