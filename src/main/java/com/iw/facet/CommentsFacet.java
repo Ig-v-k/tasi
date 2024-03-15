@@ -3,20 +3,20 @@ package com.iw.facet;
 import com.iw.Comment;
 import com.iw.Comments;
 import com.iw.Facet;
+import com.iw.Submit;
+import com.iw.submit.TasiSubmit;
 import j2html.tags.DomContent;
 import j2html.tags.Tag;
 import j2html.tags.specialized.DivTag;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import static j2html.TagCreator.*;
 
 public final class CommentsFacet implements Facet<DivTag> {
 
     private final Comments comments;
+    private final Submit submit = new TasiSubmit();
 
     public CommentsFacet(Comments comments) {
         this.comments = comments;
@@ -25,17 +25,15 @@ public final class CommentsFacet implements Facet<DivTag> {
     @Override
     public Tag<DivTag> tag() {
         final List<Comment> list = comments.all();
-        return div(content(list));
+        return div(content(list, submit));
     }
 
-    private static DomContent content(final List<Comment> comments) {
+    private static DomContent content(final List<Comment> comments, final Submit submit) {
         if (comments.isEmpty()) {
             return span("Issue comments empty.");
         } else {
             return each(comments, c -> details(
-                    summary(String.format("%s • %s",
-                            c.reporter(),
-                            DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault()).format(new Date(c.submit())))),
+                    summary(String.format("%s • %s", c.reporter(), submit.format(c.submit()))),
                     p(b(c.summary())),
                     p(c.text()),
                     hr(),
