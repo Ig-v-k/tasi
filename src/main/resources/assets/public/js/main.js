@@ -47,8 +47,8 @@ function initCreate() {
 function openEditCommentDialog(link) {
     let detailsEl = link.closest('details');
     let comment = detailsEl.getAttribute('data-comment');
-    let summaryText = detailsEl.getElementsByTagName('summary').item(0).innerText;
-    let innerText = detailsEl.getElementsByTagName('p').item(0).innerText;
+    let summaryText = detailsEl.getElementsByClassName('summary')[0].innerText;
+    let innerText = detailsEl.getElementsByClassName('text')[0].innerText;
     let editCommentDlg = document.getElementById('editCommentDlg');
     editCommentDlg.getElementsByTagName('input').namedItem('summary').value = summaryText;
     editCommentDlg.getElementsByTagName('input').namedItem('text').value = innerText;

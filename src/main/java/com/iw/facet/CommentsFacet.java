@@ -35,8 +35,8 @@ public final class CommentsFacet implements Facet<DivTag> {
         } else {
             return each(comments, c -> details(
                     summary(String.format("%s • %s", c.reporter().name(), submit.format(c.submit()))),
-                    p(b(c.summary())),
-                    p(c.text()),
+                    p(b(c.summary())).withClass("summary"),
+                    p(c.text()).withClass("text"),
                     hr(),
                     footer(join(
                             a("Edit")
