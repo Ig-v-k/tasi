@@ -2,6 +2,8 @@ package com.iw.comment;
 
 import com.iw.Comment;
 import com.iw.Container;
+import com.iw.User;
+import com.iw.user.SqlUser;
 
 import java.sql.*;
 import java.util.Arrays;
@@ -42,14 +44,14 @@ public final class SqlComment implements Comment {
     }
 
     @Override
-    public int reporter() {
+    public User reporter() {
         final String query = String.format("SELECT reporter FROM comment WHERE id = %s", id);
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();
              final ResultSet rs = st.executeQuery(query)) {
             if (rs.next()) {
                 final int reporter = rs.getInt("reporter");
-                return reporter;
+                return new SqlUser(container, reporter);
             } else {
                 final String mes = String.format(
                         "Cannot find column 'reporter' with query: \"%s\", and arguments: %s",

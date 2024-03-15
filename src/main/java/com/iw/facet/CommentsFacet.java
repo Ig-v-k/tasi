@@ -5,6 +5,7 @@ import com.iw.Comments;
 import com.iw.Facet;
 import com.iw.Submit;
 import com.iw.submit.TasiSubmit;
+import com.iw.user.SqlUser;
 import j2html.tags.DomContent;
 import j2html.tags.Tag;
 import j2html.tags.specialized.DivTag;
@@ -33,7 +34,7 @@ public final class CommentsFacet implements Facet<DivTag> {
             return span("Issue comments empty.");
         } else {
             return each(comments, c -> details(
-                    summary(String.format("%s • %s", c.reporter(), submit.format(c.submit()))),
+                    summary(String.format("%s • %s", c.reporter().name(), submit.format(c.submit()))),
                     p(b(c.summary())),
                     p(c.text()),
                     hr(),
