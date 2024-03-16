@@ -4,10 +4,7 @@ import com.iw.Container;
 import com.iw.Issue;
 import com.iw.Page;
 import com.iw.comments.RefComments;
-import com.iw.facet.BodyFacet;
-import com.iw.facet.CommentsActionsFacet;
-import com.iw.facet.CommentsFacet;
-import com.iw.facet.IssueActionsFacet;
+import com.iw.facet.*;
 import com.iw.issue.SqlIssue;
 
 public final class IssuePage implements Page {
