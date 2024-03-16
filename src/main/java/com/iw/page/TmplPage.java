@@ -39,25 +39,6 @@ public final class TmplPage implements Page {
         this.body = body;
     }
 
-    private static HeaderTag hdr(final String title, final String subtitle) {
-        final Tag<? extends Tag<?>> h1 = title.isEmpty() ? emptyTag("h1") : h1(title);
-        final Tag<? extends Tag<?>> p = subtitle.isEmpty() ? emptyTag("p") : p(subtitle);
-        return header(
-                nav(
-                        a("Home").withHref("/"),
-                        a("Github").withHref("https://github.com/Ig-v-k/tasi")),
-                h1,
-                p
-        );
-    }
-
-    private static FooterTag ftr() {
-        return footer(
-                p(join("Made by ", a("@Ig-v-k").withHref("https://github.com/Ig-v-k"), ", 2024")),
-                nav(a("GitHub").withHref("https://github.com/Ig-v-k/tasi"))
-        );
-    }
-
     @Override
     public String render() {
         return html(
@@ -72,10 +53,28 @@ public final class TmplPage implements Page {
                         script().withType("text/javascript").withSrc("/js/main.js")
                 ),
                 body(
-                        hdr(headerTitle, headerSubtitle),
+                        hdr(headerTitle, headerSubtitle, actions),
                         body.tag(),
                         ftr()
                 )
         ).render();
+    }
+
+    private static HeaderTag hdr(final String title, final String subtitle, final Facet<? extends Tag<?>> actions) {
+        final Tag<? extends Tag<?>> h1 = title.isEmpty() ? emptyTag("h1") : h1(title);
+        final Tag<? extends Tag<?>> p = subtitle.isEmpty() ? emptyTag("p") : p(subtitle);
+        return header(
+                nav(
+                        a("Home").withHref("/"),
+                        a("Github").withHref("https://github.com/Ig-v-k/tasi")),
+                h1, p, actions.tag()
+        );
+    }
+
+    private static FooterTag ftr() {
+        return footer(
+                p(join("Made by ", a("@Ig-v-k").withHref("https://github.com/Ig-v-k"), ", 2024")),
+                nav(a("GitHub").withHref("https://github.com/Ig-v-k/tasi"))
+        );
     }
 }
