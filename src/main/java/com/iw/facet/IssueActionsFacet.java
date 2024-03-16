@@ -18,15 +18,15 @@ public final class IssueActionsFacet implements Facet<DivTag> {
     @Override
     public Tag<DivTag> tag() {
         return div(
-                h4("Issue"),
-                actions()
-        );
-    }
-
-    private DivTag actions() {
-        return div(
-                button("Edit"),
-                button("Delete")
+                join(
+                        a("Edit")
+                                .withHref("#")
+                                .withClass("editIssue"),
+                        " • ",
+                        a("Delete")
+                                .withHref("#")
+                                .withClass("deleteIssue")
+                )
         );
     }
 }
