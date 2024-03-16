@@ -67,3 +67,15 @@ function openConfirmDeleteCommentDialog(link) {
     deleteCommentDlg.getElementsByTagName('input').namedItem('comment').value = comment;
     deleteCommentDlg.showModal();
 }
+
+function openConfirmDeleteCommentDialog(link) {
+    let detailsEl = link.closest('details');
+    let comment = detailsEl.getAttribute('data-comment');
+    let summaryText = detailsEl.getElementsByTagName('summary').item(0).innerText;
+    let deleteCommentDlg = document.getElementById('deleteCommentDlg');
+    let text = deleteCommentDlg.getElementsByTagName('p').namedItem('text');
+    text.innerText = `Are you sure to delete "${summaryText}"?`;
+    deleteCommentDlg.getElementsByTagName('input').namedItem('summary').value = summaryText;
+    deleteCommentDlg.getElementsByTagName('input').namedItem('comment').value = comment;
+    deleteCommentDlg.showModal();
+}

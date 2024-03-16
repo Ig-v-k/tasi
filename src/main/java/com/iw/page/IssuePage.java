@@ -29,6 +29,7 @@ public final class IssuePage implements Page {
                 title,
                 title,
                 String.format("About %s", title),
+                new IssueActionsFacet(issue),
                 new BodyFacet("issueOnLoad()",
                         new CommentsSectionFacet(
                                 new CommentsActionsFacet(id,
