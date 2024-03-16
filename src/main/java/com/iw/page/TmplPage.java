@@ -13,17 +13,17 @@ public final class TmplPage implements Page {
     private final String title;
     private final String headerTitle;
     private final String headerSubtitle;
-    private final Facet<? extends Tag<?>> facet;
+    private final Facet<? extends Tag<?>> body;
 
-    public TmplPage(String title, Facet<? extends Tag<?>> facet) {
-        this(title, "", "", facet);
+    public TmplPage(String title, Facet<? extends Tag<?>> body) {
+        this(title, "", "", body);
     }
 
-    public TmplPage(String title, String headerTitle, String headerSubtitle, Facet<? extends Tag<?>> facet) {
+    public TmplPage(String title, String headerTitle, String headerSubtitle, Facet<? extends Tag<?>> body) {
         this.title = title;
         this.headerTitle = headerTitle;
         this.headerSubtitle = headerSubtitle;
-        this.facet = facet;
+        this.body = body;
     }
 
     private static HeaderTag hdr(final String title, final String subtitle) {
@@ -60,7 +60,7 @@ public final class TmplPage implements Page {
                 ),
                 body(
                         hdr(headerTitle, headerSubtitle),
-                        facet.tag(),
+                        body.tag(),
                         ftr()
                 )
         ).render();
