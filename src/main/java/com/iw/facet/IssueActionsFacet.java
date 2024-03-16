@@ -23,11 +23,11 @@ public final class IssueActionsFacet implements Facet<DivTag> {
                 join(
                         a("Edit")
                                 .withHref("#")
-                                .withClass("editIssue"),
+                                .withId("editIssue"),
                         " • ",
                         a("Delete")
                                 .withHref("#")
-                                .withClass("deleteIssue")
+                                .withId("deleteIssue")
                 )
         );
     }
@@ -35,13 +35,13 @@ public final class IssueActionsFacet implements Facet<DivTag> {
     private DomContent confirmDeleteDlg(final Issue issue) {
         return dialog(
                 p(b("Delete issue")),
-                p().withId("text"),
+                p(String.format("Are you sure to delete \"%s\"", issue.title())),
                 form(
                         input()
                                 .withType("hidden")
                                 .withId("title")
                                 .withName("title")
-                                .withValue(""),
+                                .withValue(issue.title()),
                         input()
                                 .withType("hidden")
                                 .withId("issue")

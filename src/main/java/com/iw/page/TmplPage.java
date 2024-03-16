@@ -62,8 +62,8 @@ public final class TmplPage implements Page {
     }
 
     private static HeaderTag hdr(final String title, final String subtitle, final Facet<? extends Tag<?>> actions) {
-        final Tag<? extends Tag<?>> h1 = title.isEmpty() ? emptyTag("h1") : h1(title);
-        final Tag<? extends Tag<?>> p = subtitle.isEmpty() ? emptyTag("p") : p(subtitle);
+        final Tag<? extends Tag<?>> h1 = title.isEmpty() ? emptyTag("h1") : h1(title).withId("title");
+        final Tag<? extends Tag<?>> p = subtitle.isEmpty() ? emptyTag("p") : p(subtitle).withId("subtitle");
         return header(
                 nav(
                         a("Home").withHref("/"),

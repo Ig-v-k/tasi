@@ -19,11 +19,11 @@ public final class BodyFacet implements Facet<BodyTag> {
     private final String onLoad;
 
     public BodyFacet(Facet<? extends Tag<?>>... facets) {
-        this("", Arrays.asList(facets));
+        this("", facets);
     }
 
     public BodyFacet(String onLoad, Facet<? extends Tag<?>>... facets) {
-        this("", Arrays.asList(facets));
+        this(onLoad, Arrays.asList(facets));
     }
 
     public BodyFacet(String onLoad, List<Facet<? extends Tag<?>>> facets) {
