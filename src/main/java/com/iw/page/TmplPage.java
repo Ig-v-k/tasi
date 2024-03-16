@@ -13,16 +13,29 @@ public final class TmplPage implements Page {
     private final String title;
     private final String headerTitle;
     private final String headerSubtitle;
+    private final Facet<? extends Tag<?>> actions;
     private final Facet<? extends Tag<?>> body;
 
     public TmplPage(String title, Facet<? extends Tag<?>> body) {
-        this(title, "", "", body);
+        this(title, "", "", null, body);
     }
 
-    public TmplPage(String title, String headerTitle, String headerSubtitle, Facet<? extends Tag<?>> body) {
+    public TmplPage(String title,
+                    String headerTitle,
+                    String headerSubtitle,
+                    Facet<? extends Tag<?>> body) {
+        this(title, headerTitle, headerSubtitle, null, body);
+    }
+
+    public TmplPage(String title,
+                    String headerTitle,
+                    String headerSubtitle,
+                    Facet<? extends Tag<?>> actions,
+                    Facet<? extends Tag<?>> body) {
         this.title = title;
         this.headerTitle = headerTitle;
         this.headerSubtitle = headerSubtitle;
+        this.actions = actions;
         this.body = body;
     }
 
