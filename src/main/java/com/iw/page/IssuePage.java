@@ -4,11 +4,11 @@ import com.iw.Container;
 import com.iw.Issue;
 import com.iw.Page;
 import com.iw.comments.RefComments;
-import com.iw.facet.IssuesActionsFacet;
-import com.iw.issue.SqlIssue;
 import com.iw.facet.BodyFacet;
-import com.iw.facet.CommentActionsFacet;
+import com.iw.facet.CommentsActionsFacet;
 import com.iw.facet.CommentsFacet;
+import com.iw.facet.IssueActionsFacet;
+import com.iw.issue.SqlIssue;
 
 public final class IssuePage implements Page {
 
@@ -33,9 +33,10 @@ public final class IssuePage implements Page {
                 title,
                 String.format("About %s", title),
                 new BodyFacet("issueOnLoad()",
-                        new IssuesActionsFacet()
-                        new CommentActionsFacet(id,
-                                new CommentsFacet(
-                                        new RefComments(container, id))))).render();
+                        new IssueActionsFacet(issue),
+                        new CommentsSectionFacet(
+                                new CommentsActionsFacet(id,
+                                        new CommentsFacet(
+                                                new RefComments(container, id)))))).render();
     }
 }
