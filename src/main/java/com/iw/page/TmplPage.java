@@ -2,6 +2,7 @@ package com.iw.page;
 
 import com.iw.Facet;
 import com.iw.Page;
+import com.iw.facet.EmptyFacet;
 import j2html.tags.Tag;
 import j2html.tags.specialized.FooterTag;
 import j2html.tags.specialized.HeaderTag;
@@ -17,14 +18,14 @@ public final class TmplPage implements Page {
     private final Facet<? extends Tag<?>> body;
 
     public TmplPage(String title, Facet<? extends Tag<?>> body) {
-        this(title, "", "", null, body);
+        this(title, "", "", body);
     }
 
     public TmplPage(String title,
                     String headerTitle,
                     String headerSubtitle,
                     Facet<? extends Tag<?>> body) {
-        this(title, headerTitle, headerSubtitle, null, body);
+        this(title, headerTitle, headerSubtitle, new EmptyFacet(), body);
     }
 
     public TmplPage(String title,
