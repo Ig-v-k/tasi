@@ -78,5 +78,5 @@ function openConfirmDeleteCommentDialog(link) {
 
 function openConfirmDeleteIssueDialog() {
     let deleteIssueDlg = document.getElementById('deleteIssueDlg');
-    deleteCommentDlg.showModal();
+    deleteIssueDlg.showModal();
 }
