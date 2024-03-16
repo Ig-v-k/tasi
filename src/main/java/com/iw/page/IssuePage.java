@@ -30,7 +30,6 @@ public final class IssuePage implements Page {
                 title,
                 String.format("About %s", title),
                 new BodyFacet("issueOnLoad()",
-                        new IssueActionsFacet(issue),
                         new CommentsSectionFacet(
                                 new CommentsActionsFacet(id,
                                         new CommentsFacet(
