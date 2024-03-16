@@ -3,10 +3,7 @@ package com.iw.issue;
 import com.iw.Container;
 import com.iw.Issue;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Arrays;
 
 public final class SqlIssue implements Issue {
@@ -39,6 +36,19 @@ public final class SqlIssue implements Issue {
                         query, Arrays.toString(new int[]{id}));
                 throw new RuntimeException(mes);
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean delete() {
+        final String sql = "DELETE FROM issue WHERE id = ?";
+        try (final Connection conn = container.conn();
+             final PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setInt(1, id);
+            int affected = st.executeUpdate();
+            return affected > 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -3,6 +3,7 @@ package com.iw;
 import com.iw.comment.SqlComment;
 import com.iw.comments.SqlComments;
 import com.iw.container.HikariContainer;
+import com.iw.issue.SqlIssue;
 import com.iw.issues.SqlIssues;
 import com.iw.jdbc.PsqlJDBC;
 import com.iw.logs.SqlLogs;
@@ -77,6 +78,16 @@ public class App {
                                     ctx.redirect("/issue/" + issue.id());
                                 } else {
                                     ctx.result("Create fail. Reload page.");
+                                }
+                            });
+                            post("/delete", ctx -> {
+                                final String title = ctx.formParam("title");
+                                final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
+                                if (new SqlIssue(container, issue).delete()) {
+                                    logs.add("Issue created: " + title);
+                                    ctx.redirect("/");
+                                } else {
+                                    ctx.result("Delete fail. Reload page.");
                                 }
                             });
                         });
