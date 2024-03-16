@@ -7,11 +7,11 @@ import j2html.tags.specialized.MainTag;
 
 import static j2html.TagCreator.*;
 
-public final class IssueActionsFacet implements Facet<MainTag> {
+public final class IssuesActionsFacet implements Facet<MainTag> {
 
     private final Facet<? extends Tag<?>> facet;
 
-    public IssueActionsFacet(Facet<? extends Tag<?>> facet) {
+    public IssuesActionsFacet(Facet<? extends Tag<?>> facet) {
         this.facet = facet;
     }
 

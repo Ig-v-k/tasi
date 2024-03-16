@@ -4,6 +4,7 @@ import com.iw.Container;
 import com.iw.Issue;
 import com.iw.Page;
 import com.iw.comments.RefComments;
+import com.iw.facet.IssuesActionsFacet;
 import com.iw.issue.SqlIssue;
 import com.iw.facet.BodyFacet;
 import com.iw.facet.CommentActionsFacet;
@@ -32,6 +33,7 @@ public final class IssuePage implements Page {
                 title,
                 String.format("About %s", title),
                 new BodyFacet("issueOnLoad()",
+                        new IssuesActionsFacet()
                         new CommentActionsFacet(id,
                                 new CommentsFacet(
                                         new RefComments(container, id))))).render();
