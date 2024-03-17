@@ -90,6 +90,17 @@ public class App {
                                     ctx.result("Delete fail. Reload page.");
                                 }
                             });
+                            post("/update", ctx -> {
+                                final String title = ctx.formParam("title");
+                                final String description = ctx.formParam("description");
+                                final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
+                                if (new SqlIssue(container, issue).update(title, description)) {
+                                    logs.add("Issue updated: " + issue);
+                                    ctx.redirect("/issue/" + issue);
+                                } else {
+                                    ctx.result("Update fail. Reload page.");
+                                }
+                            });
                         });
                     });
                 })
