@@ -28,7 +28,7 @@ public final class IssuePage implements Page {
         return new TmplPage(
                 title,
                 title,
-                String.format("About %s", title),
+                issue.description(),
                 new IssueActionsFacet(issue),
                 new BodyFacet("issueOnLoad()",
                         new CommentsSectionFacet(
