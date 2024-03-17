@@ -62,6 +62,21 @@ public final class SqlIssue implements Issue {
     }
 
     @Override
+    public boolean update(String title, String description) {
+        final String sql = "UPDATE issue SET title = ?, description = ?, WHERE id = ?";
+        try (final Connection conn = container.conn();
+             final PreparedStatement st = conn.prepareStatement(sql)) {
+            st.setString(1, title);
+            st.setString(2, description);
+            st.setInt(3, id);
+            int affected = st.executeUpdate();
+            return affected > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public boolean delete() {
         final String sql = "DELETE FROM issue WHERE id = ?";
         try (final Connection conn = container.conn();
