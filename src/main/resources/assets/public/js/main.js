@@ -1,6 +1,7 @@
 function issueOnLoad() {
     initAdd();
     initEdits();
+    initEditIssue();
     initConfirmDeleteComment();
     initConfirmDeleteIssue();
 }
@@ -25,6 +26,13 @@ function initEdits() {
             openEditCommentDialog(link);
         });
     }
+}
+
+function initEditIssue() {
+    let link = document.getElementById('editIssue');
+    link.addEventListener('click', () => {
+        openEditIssueDialog(link);
+    });
 }
 
 function initConfirmDeleteComment() {
@@ -62,6 +70,15 @@ function openEditCommentDialog(link) {
     editCommentDlg.getElementsByTagName('input').namedItem('text').value = innerText;
     editCommentDlg.getElementsByTagName('input').namedItem('comment').value = comment;
     editCommentDlg.showModal();
+}
+
+function openEditIssueDialog() {
+    let title = document.getElementById('title');
+    let subtitle = document.getElementById('subtitle');
+    let editIssueDlg = document.getElementById('editIssueDlg');
+    editIssueDlg.getElementsByTagName('input').namedItem('title').value = title;
+    editIssueDlg.getElementsByTagName('input').namedItem('description').value = subtitle;
+    editIssueDlg.showModal();
 }
 
 function openConfirmDeleteCommentDialog(link) {
