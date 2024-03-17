@@ -73,11 +73,7 @@ function openEditCommentDialog(link) {
 }
 
 function openEditIssueDialog() {
-    let title = document.getElementById('title');
-    let subtitle = document.getElementById('subtitle');
     let editIssueDlg = document.getElementById('editIssueDlg');
-    editIssueDlg.getElementsByTagName('input').namedItem('title').value = title;
-    editIssueDlg.getElementsByTagName('input').namedItem('description').value = subtitle;
     editIssueDlg.showModal();
 }
 
