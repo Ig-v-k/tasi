@@ -19,10 +19,10 @@ public final class CommentsActionsFacet implements Facet<MainTag> {
 
     @Override
     public Tag<MainTag> tag() {
-        return main(commentDlg(issue), editCommentDlg(issue), confirmDeleteCommentDlg(issue), facet.tag(), ftr());
+        return main(addCommentDlg(issue), editCommentDlg(issue), confirmDeleteCommentDlg(issue), facet.tag(), ftr());
     }
 
-    private static DomContent commentDlg(final int issue) {
+    private static DomContent addCommentDlg(final int issue) {
         return dialog(
                 p(b("Comment")),
                 form(
