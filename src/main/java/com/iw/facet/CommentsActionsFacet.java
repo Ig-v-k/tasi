@@ -42,6 +42,7 @@ public final class CommentsActionsFacet implements Facet<MainTag> {
                                 .withMaxlength("255")
                                 .withSize("10")
                                 .isRequired(),
+                        select(each(types, t -> option(t.name()).withValue(t.id()))),
                         input()
                                 .withType("hidden")
                                 .withId("issue")
