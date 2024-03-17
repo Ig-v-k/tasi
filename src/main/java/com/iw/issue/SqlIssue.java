@@ -63,7 +63,7 @@ public final class SqlIssue implements Issue {
 
     @Override
     public boolean update(String title, String description) {
-        final String sql = "UPDATE issue SET title = ?, description = ?, WHERE id = ?";
+        final String sql = "UPDATE issue SET title = ?, description = ? WHERE id = ?";
         try (final Connection conn = container.conn();
              final PreparedStatement st = conn.prepareStatement(sql)) {
             st.setString(1, title);
