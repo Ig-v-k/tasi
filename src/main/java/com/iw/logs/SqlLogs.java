@@ -1,10 +1,8 @@
 package com.iw.logs;
 
 import com.iw.Container;
-import com.iw.Issue;
 import com.iw.Log;
 import com.iw.Logs;
-import com.iw.issue.SqlIssue;
 import com.iw.log.SqlLog;
 
 import java.sql.*;

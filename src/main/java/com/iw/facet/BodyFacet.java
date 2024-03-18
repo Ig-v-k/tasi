@@ -1,13 +1,10 @@
 package com.iw.facet;
 
 import com.iw.Facet;
-import j2html.TagCreator;
 import j2html.tags.Tag;
 import j2html.tags.specialized.BodyTag;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static j2html.TagCreator.body;

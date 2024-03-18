@@ -1,7 +1,7 @@
 package com.iw.facet;
 
-import com.iw.Issue;
 import com.iw.Facet;
+import com.iw.Issue;
 import j2html.tags.Tag;
 import j2html.tags.specialized.MainTag;
 

@@ -14,9 +14,9 @@ import io.javalin.http.HttpStatus;
 import io.javalin.http.staticfiles.Location;
 
 import java.util.Calendar;
-import java.util.Date;
 
-import static io.javalin.apibuilder.ApiBuilder.*;
+import static io.javalin.apibuilder.ApiBuilder.path;
+import static io.javalin.apibuilder.ApiBuilder.post;
 
 public class App {
     public static void main(String[] args) {

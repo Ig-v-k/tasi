@@ -17,11 +17,6 @@ public final class CommentsActionsFacet implements Facet<MainTag> {
         this.issue = issue;
     }
 
-    @Override
-    public Tag<MainTag> tag() {
-        return main(addCommentDlg(issue), editCommentDlg(issue), confirmDeleteCommentDlg(issue), facet.tag(), ftr());
-    }
-
     private static DomContent addCommentDlg(final int issue) {
         return dialog(
                 p(b("Comment")),
@@ -123,5 +118,10 @@ public final class CommentsActionsFacet implements Facet<MainTag> {
 
     private static DomContent ftr() {
         return button("Add comment").withId("addCommentBottom");
+    }
+
+    @Override
+    public Tag<MainTag> tag() {
+        return main(addCommentDlg(issue), editCommentDlg(issue), confirmDeleteCommentDlg(issue), facet.tag(), ftr());
     }
 }

@@ -5,7 +5,6 @@ import com.iw.Comments;
 import com.iw.Facet;
 import com.iw.Submit;
 import com.iw.submit.TasiSubmit;
-import com.iw.user.SqlUser;
 import j2html.tags.DomContent;
 import j2html.tags.Tag;
 import j2html.tags.specialized.DivTag;
@@ -21,12 +20,6 @@ public final class CommentsFacet implements Facet<DivTag> {
 
     public CommentsFacet(Comments comments) {
         this.comments = comments;
-    }
-
-    @Override
-    public Tag<DivTag> tag() {
-        final List<Comment> list = comments.all();
-        return div(content(list, submit));
     }
 
     private static DomContent content(final List<Comment> comments, final Submit submit) {
@@ -49,5 +42,11 @@ public final class CommentsFacet implements Facet<DivTag> {
                     ))
             ).withId("comment_" + c.id()).withData("comment", String.valueOf(c.id())));
         }
+    }
+
+    @Override
+    public Tag<DivTag> tag() {
+        final List<Comment> list = comments.all();
+        return div(content(list, submit));
     }
 }

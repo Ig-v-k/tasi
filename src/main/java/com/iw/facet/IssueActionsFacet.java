@@ -2,7 +2,6 @@ package com.iw.facet;
 
 import com.iw.Facet;
 import com.iw.Issue;
-import j2html.tags.DomContent;
 import j2html.tags.Tag;
 import j2html.tags.specialized.DialogTag;
 import j2html.tags.specialized.DivTag;
