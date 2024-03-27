@@ -36,7 +36,7 @@ public final class IssuesFacet implements Facet<TableTag> {
                     return tr(
                             td("-T-"),
                             td("-Key-"),
-                            td(title),
+                            td(a(title).withHref("/issue/" + e.id())),
                             td("-Assignee-"),
                             td("-Reporter-"),
                             td("-P-"),
