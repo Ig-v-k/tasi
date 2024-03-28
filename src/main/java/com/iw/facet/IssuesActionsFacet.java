@@ -21,7 +21,23 @@ public final class IssuesActionsFacet implements Facet<MainTag> {
     }
 
     private DomContent actions() {
-        return div(button("Create").withId("create"));
+        return div(
+                input().withPlaceholder("Search").withType("text").withSize("20"),
+                select(
+                        option("Type").withValue(""),
+                        option("Bug").withValue("bug"),
+                        option("Feature").withValue("feature")),
+                select(
+                        option("Status").withValue(""),
+                        option("Progress").withValue("progress"),
+                        option("Todo").withValue("todo")),
+                select(
+                        option("Assignee").withValue(""),
+                        option("A a").withValue("@a"),
+                        option("B b").withValue("@b")),
+                text(" | "),
+                a("Reset").withHref("#"),
+                button("Create").withId("create"));
     }
 
     private DomContent createDlg() {
