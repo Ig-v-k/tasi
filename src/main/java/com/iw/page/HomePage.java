@@ -2,10 +2,7 @@ package com.iw.page;
 
 import com.iw.Issues;
 import com.iw.Page;
-import com.iw.facet.BodyFacet;
-import com.iw.facet.IssuesActionsFacet;
-import com.iw.facet.IssuesFacet;
-import com.iw.facet.TitleFacet;
+import com.iw.facet.*;
 
 public final class HomePage implements Page {
 
@@ -22,8 +19,7 @@ public final class HomePage implements Page {
                 "tasi",
                 "Bug report manager",
                 new BodyFacet("issuesOnLoad()",
-                        new TitleFacet(
-                                "Open issues",
+                        new IssuesSectionFacet(
                                 new IssuesActionsFacet(
                                         new IssuesFacet(issues.all()))))).render();
     }
