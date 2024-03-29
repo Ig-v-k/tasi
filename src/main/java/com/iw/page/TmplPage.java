@@ -6,12 +6,13 @@ import com.iw.facet.EmptyFacet;
 import j2html.tags.Tag;
 import j2html.tags.specialized.FooterTag;
 import j2html.tags.specialized.HeaderTag;
+import j2html.tags.specialized.NavTag;
 
 import static j2html.TagCreator.*;
 
 public final class TmplPage implements Page {
 
-    private final boolean showNav;
+    private final Facet<NavTag> navigation;
     private final String title;
     private final String headerTitle;
     private final String headerSubtitle;
@@ -23,7 +24,7 @@ public final class TmplPage implements Page {
     }
 
     public TmplPage(String title, String headerTitle, String headerSubtitle, Facet<? extends Tag<?>> body) {
-        this(true, title, headerTitle, headerSubtitle, new EmptyFacet(), body);
+        this(new EmptyFacet(), title, headerTitle, headerSubtitle, new EmptyFacet(), body);
     }
 
     public TmplPage(String title,
@@ -31,38 +32,20 @@ public final class TmplPage implements Page {
                     String headerSubtitle,
                     Facet<? extends Tag<?>> actions,
                     Facet<? extends Tag<?>> body) {
-        this(true, title, headerTitle, headerSubtitle, actions, body);
+        this(new EmptyFacet(), title, headerTitle, headerSubtitle, actions, body);
     }
 
-    public TmplPage(boolean showNav, String title,
+    public TmplPage(final Facet<NavTag> navigation, String title,
                     String headerTitle,
                     String headerSubtitle,
                     Facet<? extends Tag<?>> actions,
                     Facet<? extends Tag<?>> body) {
-        this.showNav = showNav;
+        this.navigation = navigation;
         this.title = title;
         this.headerTitle = headerTitle;
         this.headerSubtitle = headerSubtitle;
         this.actions = actions;
         this.body = body;
-    }
-
-    private static HeaderTag hdr(final String title, final String subtitle, final Facet<? extends Tag<?>> actions) {
-        final Tag<? extends Tag<?>> h1 = title.isEmpty() ? emptyTag("h1") : h1(title).withId("title");
-        final Tag<? extends Tag<?>> p = subtitle.isEmpty() ? emptyTag("p") : p(subtitle).withId("subtitle");
-        return header(
-                nav(
-                        a("Home").withHref("/"),
-                        a("Github").withHref("https://github.com/Ig-v-k/tasi")),
-                h1, p, actions.tag()
-        );
-    }
-
-    private static FooterTag ftr() {
-        return footer(
-                p(join("Made by ", a("@Ig-v-k").withHref("https://github.com/Ig-v-k"), ", 2024")),
-                nav(a("GitHub").withHref("https://github.com/Ig-v-k/tasi"))
-        );
     }
 
     @Override
@@ -79,10 +62,24 @@ public final class TmplPage implements Page {
                         script().withType("text/javascript").withSrc("/js/main.js")
                 ),
                 body(
+                        iff()
                         hdr(headerTitle, headerSubtitle, actions),
                         body.tag(),
                         ftr()
                 )
         ).render();
+    }
+
+    private static HeaderTag hdr(final String title, final String subtitle, final Facet<? extends Tag<?>> actions) {
+        final Tag<? extends Tag<?>> h1 = title.isEmpty() ? emptyTag("h1") : h1(title).withId("title");
+        final Tag<? extends Tag<?>> p = subtitle.isEmpty() ? emptyTag("p") : p(subtitle).withId("subtitle");
+        return header(navigation.tag(), h1, p, actions.tag());
+    }
+
+    private static FooterTag ftr() {
+        return footer(
+                p(join("Made by ", a("@Ig-v-k").withHref("https://github.com/Ig-v-k"), ", 2024")),
+                nav(a("GitHub").withHref("https://github.com/Ig-v-k/tasi"))
+        );
     }
 }

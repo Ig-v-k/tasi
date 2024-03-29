@@ -26,7 +26,6 @@ public final class IssuePage implements Page {
         final Issue issue = new SqlIssue(container, id);
         final String title = issue.title();
         return new TmplPage(
-                false,
                 title,
                 title,
                 issue.description(),
