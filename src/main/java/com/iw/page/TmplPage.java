@@ -62,18 +62,16 @@ public final class TmplPage implements Page {
                         script().withType("text/javascript").withSrc("/js/main.js")
                 ),
                 body(
-                        iff()
-                        hdr(headerTitle, headerSubtitle, actions),
+                        header(
+                                navigation.tag(),
+                                iffElse(headerTitle.isEmpty(), emptyTag("h1"), h1(title).withId("title")),
+                                iffElse(headerSubtitle.isEmpty(), emptyTag("p"), p(title).withId("title")),
+                                actions.tag()
+                        ),
                         body.tag(),
                         ftr()
                 )
         ).render();
-    }
-
-    private static HeaderTag hdr(final String title, final String subtitle, final Facet<? extends Tag<?>> actions) {
-        final Tag<? extends Tag<?>> h1 = title.isEmpty() ? emptyTag("h1") : h1(title).withId("title");
-        final Tag<? extends Tag<?>> p = subtitle.isEmpty() ? emptyTag("p") : p(subtitle).withId("subtitle");
-        return header(navigation.tag(), h1, p, actions.tag());
     }
 
     private static FooterTag ftr() {
