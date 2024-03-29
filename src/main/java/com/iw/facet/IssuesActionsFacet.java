@@ -3,11 +3,11 @@ package com.iw.facet;
 import com.iw.Facet;
 import j2html.tags.DomContent;
 import j2html.tags.Tag;
-import j2html.tags.specialized.MainTag;
+import j2html.tags.specialized.DivTag;
 
 import static j2html.TagCreator.*;
 
-public final class IssuesActionsFacet implements Facet<MainTag> {
+public final class IssuesActionsFacet implements Facet<DivTag> {
 
     private final Facet<? extends Tag<?>> facet;
 
@@ -16,8 +16,8 @@ public final class IssuesActionsFacet implements Facet<MainTag> {
     }
 
     @Override
-    public Tag<MainTag> tag() {
-        return main(actions(), facet.tag());
+    public Tag<DivTag> tag() {
+        return div(actions(), facet.tag());
     }
 
     private DomContent actions() {

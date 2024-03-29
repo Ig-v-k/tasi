@@ -2,14 +2,14 @@ package com.iw.facet;
 
 import com.iw.Facet;
 import j2html.tags.Tag;
-import j2html.tags.specialized.DivTag;
+import j2html.tags.specialized.MainTag;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static j2html.TagCreator.*;
 
-public final class IssuesSectionFacet implements Facet<DivTag> {
+public final class IssuesSectionFacet implements Facet<MainTag> {
 
     private final List<Facet<? extends Tag<?>>> facets;
 
@@ -22,8 +22,8 @@ public final class IssuesSectionFacet implements Facet<DivTag> {
     }
 
     @Override
-    public Tag<DivTag> tag() {
-        return div(
+    public Tag<MainTag> tag() {
+        return main(
                 p("Admin"),
                 h3("Open issues").withStyle("margin-top: 0;"),
                 div(
