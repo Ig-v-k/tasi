@@ -1,9 +1,10 @@
 :root {
-    --secondary: #f2f4f7;
+    --secondary: #e3ecfa;
     --secondary-text: #0f2b46;
 }
 
-button .secondary {
-    border: 1px solid var(--accent);
-    background-color: var(--accent);
+button.secondary {
+    border: 1px solid var(--secondary);
+    background-color: var(--secondary);
+    color: var(--secondary-text);
 }
