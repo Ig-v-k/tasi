@@ -18,6 +18,7 @@ public final class HomePage implements Page {
                 "tasi",
                 "tasi",
                 "Bug report manager",
+                new HomeActionsFacet(),
                 new BodyFacet("issuesOnLoad()",
                         new IssuesSectionFacet(
                                 new IssuesActionsFacet(

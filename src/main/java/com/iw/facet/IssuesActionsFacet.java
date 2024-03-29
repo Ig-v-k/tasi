@@ -17,7 +17,7 @@ public final class IssuesActionsFacet implements Facet<MainTag> {
 
     @Override
     public Tag<MainTag> tag() {
-        return main(createDlg(), actions(), facet.tag());
+        return main(actions(), facet.tag());
     }
 
     private DomContent actions() {
@@ -36,27 +36,6 @@ public final class IssuesActionsFacet implements Facet<MainTag> {
                         option("A a").withValue("@a"),
                         option("B b").withValue("@b")),
                 text(" | "),
-                a("Reset").withHref("#"),
-                button("Create").withId("create"));
-    }
-
-    private DomContent createDlg() {
-        return dialog(
-                p(b("Create")),
-                form(
-                        input()
-                                .withType("text")
-                                .withId("title")
-                                .withName("title")
-                                .withPlaceholder("Title")
-                                .withMaxlength("255")
-                                .withSize("10")
-                                .isRequired(),
-                        button("Save").withType("submit")
-                ).withAction("/issue/create").withMethod("post"),
-                form(
-                        button("Close")
-                ).withMethod("dialog")
-        ).withId("createDlg");
+                a("Reset").withHref("#"));
     }
 }
