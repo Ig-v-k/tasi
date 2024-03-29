@@ -1,0 +1,9 @@
+:root {
+    --secondary: #f2f4f7;
+    --secondary-text: #0f2b46;
+}
+
+button .secondary {
+    border: 1px solid var(--accent);
+    background-color: var(--accent);
+}

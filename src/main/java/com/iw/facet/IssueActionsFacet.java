@@ -21,14 +21,40 @@ public final class IssueActionsFacet implements Facet<DivTag> {
         return div(
                 confirmDeleteDlg(issue),
                 editDlg(issue),
-                join(
-                        a("Edit")
-                                .withHref("#")
-                                .withId("editIssue"),
-                        " • ",
-                        a("Delete")
-                                .withHref("#")
-                                .withId("deleteIssue")
+                div(
+                        join(
+                                a("Report").withHref("#"),
+                                "&ensp;",
+                                a(b("1"), text("Watch")).withHref("#"),
+                                "&ensp;",
+                                a(b("2"), text("Likes")).withHref("#"),
+                                "&ensp;",
+                                a("Share").withHref("#")
+                        )
+                ),
+                div(
+                        join(
+                                button(attrs(".secondary"), "Attach"),
+                                "&nbsp",
+                                button(attrs(".secondary"), "Subtask"),
+                                "&nbsp",
+                                button(attrs(".secondary"), "Link issue"),
+                                "&nbsp",
+                                button(attrs(".secondary"), "...")
+                        )
+                ),
+                div(
+                        select(
+                                option("Done").withValue("done"),
+                                option("Todo").withValue("todo"),
+                                option("In progress").withValue("inprogress")
+                        ),
+                        select(
+                                option("Actions").withValue(""),
+                                option("Action1").withValue("action1"),
+                                option("Action2").withValue("action2"),
+                                option("Action3").withValue("action3")
+                        )
                 )
         );
     }
