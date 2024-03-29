@@ -65,7 +65,7 @@ public final class TmplPage implements Page {
                         header(
                                 navigation.tag(),
                                 iffElse(headerTitle.isEmpty(), emptyTag("h1"), h1(title).withId("title")),
-                                iffElse(headerSubtitle.isEmpty(), emptyTag("p"), p(title).withId("title")),
+                                iffElse(headerSubtitle.isEmpty(), emptyTag("p"), p(headerSubtitle).withId("title")),
                                 actions.tag()
                         ),
                         body.tag(),
