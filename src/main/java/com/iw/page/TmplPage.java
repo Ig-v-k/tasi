@@ -11,6 +11,7 @@ import static j2html.TagCreator.*;
 
 public final class TmplPage implements Page {
 
+    private final boolean showNav;
     private final String title;
     private final String headerTitle;
     private final String headerSubtitle;
@@ -21,11 +22,8 @@ public final class TmplPage implements Page {
         this(title, "", "", body);
     }
 
-    public TmplPage(String title,
-                    String headerTitle,
-                    String headerSubtitle,
-                    Facet<? extends Tag<?>> body) {
-        this(title, headerTitle, headerSubtitle, new EmptyFacet(), body);
+    public TmplPage(String title, String headerTitle, String headerSubtitle, Facet<? extends Tag<?>> body) {
+        this(true, title, headerTitle, headerSubtitle, new EmptyFacet(), body);
     }
 
     public TmplPage(String title,
@@ -33,6 +31,15 @@ public final class TmplPage implements Page {
                     String headerSubtitle,
                     Facet<? extends Tag<?>> actions,
                     Facet<? extends Tag<?>> body) {
+        this(true, title, headerTitle, headerSubtitle, actions, body);
+    }
+
+    public TmplPage(boolean showNav, String title,
+                    String headerTitle,
+                    String headerSubtitle,
+                    Facet<? extends Tag<?>> actions,
+                    Facet<? extends Tag<?>> body) {
+        this.showNav = showNav;
         this.title = title;
         this.headerTitle = headerTitle;
         this.headerSubtitle = headerSubtitle;
