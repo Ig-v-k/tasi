@@ -24,7 +24,7 @@ public final class IssuesSectionFacet implements Facet<DivTag> {
     @Override
     public Tag<DivTag> tag() {
         return div(
-                span("Admin"),
+                p("Admin"),
                 h3("Open issues").withStyle("margin-top: 0;"),
                 div(
                         a("Share").withHref("#"),
