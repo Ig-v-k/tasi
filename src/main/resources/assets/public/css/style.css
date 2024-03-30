@@ -1,5 +1,6 @@
 :root {
     --secondary: #e3ecfa;
+    --secondary-hover: #c9dfff;
     --secondary-text: #0f2b46;
 }
 
@@ -7,4 +8,9 @@ button.secondary {
     border: 1px solid var(--secondary);
     background-color: var(--secondary);
     color: var(--secondary-text);
+}
+
+button.secondary:hover {
+    border: 1px solid var(--secondary-hover);
+    background-color: var(--secondary-hover);
 }
