@@ -31,6 +31,7 @@ public final class IssuePage implements Page {
                 "Projects  /  CRM  /  " + issue.description(),
                 new IssueActionsFacet(issue),
                 new BodyFacet("issueOnLoad()",
+                        new IssueDetailsFacet(issue),
                         new CommentsSectionFacet(
                                 new CommentsActionsFacet(id,
                                         new CommentsFacet(
