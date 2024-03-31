@@ -20,6 +20,6 @@ public class CommentsSectionFacet implements Facet<DivTag> {
         return div(
                 h4("Comments"),
                 facet.tag()
-        );
+        ).withId("comments");
     }
 }

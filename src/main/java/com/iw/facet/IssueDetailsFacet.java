@@ -38,6 +38,6 @@ public final class IssueDetailsFacet implements Facet<DivTag> {
                                 span(b("Time tracking:")), span("2w 3d 4h 48m logged")
                         )
                 )
-        );
+        ).withId("details");
     }
 }
