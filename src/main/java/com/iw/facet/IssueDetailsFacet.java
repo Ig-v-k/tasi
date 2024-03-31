@@ -20,7 +20,24 @@ public final class IssueDetailsFacet implements Facet<DivTag> {
     public Tag<DivTag> tag() {
         return div(
                 h4("Details"),
-                p(issue.description())
+                p(issue.description()),
+                div(
+                        join(
+                                span(b("Assignee:")), span("Admin").withId("assignee"),
+                                "&ensp;",
+                                span(b("Components:")), span(span("launch"), span("rocket")).withId("components"),
+                                "&ensp;",
+                                span(b("Labels:")), span(span("black-hole"), span("earth"), span("outer-space")).withId("labels"),
+                                "&ensp;",
+                                span(b("Reporter:")), span("Admin").withId("reporter"),
+                                "&ensp;",
+                                span(b("Priority:")), span("High").withId("priority"),
+                                "&ensp;",
+                                span(b("Project:")), span("CRM").withId("project"),
+                                "&ensp;",
+                                span(b("Time tracking:")), span("2w 3d 4h 48m logged")
+                        )
+                )
         );
     }
 }
