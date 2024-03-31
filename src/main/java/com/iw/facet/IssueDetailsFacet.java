@@ -25,9 +25,9 @@ public final class IssueDetailsFacet implements Facet<DivTag> {
                         join(
                                 span(b("Assignee:")), span("Admin").withId("assignee"),
                                 "&ensp;",
-                                span(b("Components:")), span(span("launch"), span("rocket")).withId("components"),
+                                span(b("Components:")), span("launch, rocket").withId("components"),
                                 "&ensp;",
-                                span(b("Labels:")), span(span("black-hole"), span("earth"), span("outer-space")).withId("labels"),
+                                span(b("Labels:")), span("black-hole, earth, outer-space").withId("labels"),
                                 "&ensp;",
                                 span(b("Reporter:")), span("Admin").withId("reporter"),
                                 "&ensp;",
