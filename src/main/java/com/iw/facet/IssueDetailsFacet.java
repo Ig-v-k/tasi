@@ -23,21 +23,23 @@ public final class IssueDetailsFacet implements Facet<DivTag> {
                 p(issue.description()),
                 div(
                         join(
-                                span(b("Assignee:")), span("Admin").withId("assignee"),
+                                span(b("Assignee:")), span("🧔Admin").withId("assignee"),
                                 "&ensp;",
                                 span(b("Components:")), span("launch, rocket").withId("components"),
                                 "&ensp;",
                                 span(b("Labels:")), span("black-hole, earth, outer-space").withId("labels"),
                                 "&ensp;",
-                                span(b("Reporter:")), span("Admin").withId("reporter"),
+                                span(b("Reporter:")), span("🧔Admin").withId("reporter"),
                                 "&ensp;",
-                                span(b("Priority:")), span("High").withId("priority"),
+                                span(b("Priority:")), span("🟠High").withId("priority"),
                                 "&ensp;",
                                 span(b("Project:")), span("CRM").withId("project"),
                                 "&ensp;",
-                                span(b("Time tracking:")), span("2w 3d 4h 48m logged")
+                                span(b("Time tracking:")), span("⌚2w 3d 4h 48m logged")
                         )
-                )
+                ),
+                p(join("Created September 8, 2020. 9:43 AM", br(), "Updated 11 seconds ago", br(), "Resolved 11 seconds ago")),
+                hr()
         ).withId("details");
     }
 }
