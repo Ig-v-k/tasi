@@ -2,7 +2,6 @@ package com.iw;
 
 public interface Issue {
     int id();
-    String key();
     String summary();
     String description();
     int assignee();

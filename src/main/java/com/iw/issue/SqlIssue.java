@@ -62,6 +62,36 @@ public final class SqlIssue implements Issue {
     }
 
     @Override
+    public int assignee() {
+        return 0;
+    }
+
+    @Override
+    public int reporter() {
+        return 0;
+    }
+
+    @Override
+    public int priority() {
+        return 0;
+    }
+
+    @Override
+    public int status() {
+        return 0;
+    }
+
+    @Override
+    public long created() {
+        return 0;
+    }
+
+    @Override
+    public long updated() {
+        return 0;
+    }
+
+    @Override
     public boolean update(String title, String description) {
         final String sql = "UPDATE issue SET title = ?, description = ? WHERE id = ?";
         try (final Connection conn = container.conn();
