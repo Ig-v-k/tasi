@@ -63,32 +63,122 @@ public final class SqlIssue implements Issue {
 
     @Override
     public int assignee() {
-        return 0;
+        final String query = String.format("SELECT assignee FROM issue WHERE id = %s", id);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                final int assignee = rs.getInt("assignee");
+                return assignee;
+            } else {
+                final String mes = String.format(
+                        "Cannot find column 'assignee' with query: \"%s\", and arguments: %s",
+                        query, Arrays.toString(new int[]{id}));
+                throw new RuntimeException(mes);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public int reporter() {
-        return 0;
+        final String query = String.format("SELECT reporter FROM issue WHERE id = %s", id);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                final int reporter = rs.getInt("reporter");
+                return reporter;
+            } else {
+                final String mes = String.format(
+                        "Cannot find column 'reporter' with query: \"%s\", and arguments: %s",
+                        query, Arrays.toString(new int[]{id}));
+                throw new RuntimeException(mes);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public int priority() {
-        return 0;
+        final String query = String.format("SELECT priority FROM issue WHERE id = %s", id);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                final int priority = rs.getInt("priority");
+                return priority;
+            } else {
+                final String mes = String.format(
+                        "Cannot find column 'priority' with query: \"%s\", and arguments: %s",
+                        query, Arrays.toString(new int[]{id}));
+                throw new RuntimeException(mes);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public int status() {
-        return 0;
+        final String query = String.format("SELECT status FROM issue WHERE id = %s", id);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                final int status = rs.getInt("status");
+                return status;
+            } else {
+                final String mes = String.format(
+                        "Cannot find column 'status' with query: \"%s\", and arguments: %s",
+                        query, Arrays.toString(new int[]{id}));
+                throw new RuntimeException(mes);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public long created() {
-        return 0;
+        final String query = String.format("SELECT created FROM issue WHERE id = %s", id);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                final long created = rs.getLong("created");
+                return created;
+            } else {
+                final String mes = String.format(
+                        "Cannot find column 'created' with query: \"%s\", and arguments: %s",
+                        query, Arrays.toString(new int[]{id}));
+                throw new RuntimeException(mes);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public long updated() {
-        return 0;
+        final String query = String.format("SELECT updated FROM issue WHERE id = %s", id);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                final long updated = rs.getLong("updated");
+                return updated;
+            } else {
+                final String mes = String.format(
+                        "Cannot find column 'updated' with query: \"%s\", and arguments: %s",
+                        query, Arrays.toString(new int[]{id}));
+                throw new RuntimeException(mes);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
