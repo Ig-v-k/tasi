@@ -71,30 +71,31 @@ public class App {
                         });
                         path("/issue", () -> {
                             post("/create", ctx -> {
-                                final String title = ctx.formParam("title");
-                                if (issues.add(title)) {
-                                    final Issue issue = issues.byTitle(title);
-                                    logs.add("Issue created: " + title);
+                                final String summary = ctx.formParam("summary");
+                                if (issues.add(summary)) {
+                                    final Issue issue = issues.bySummary(summary);
+                                    logs.add("Issue created: " + summary);
                                     ctx.redirect("/issue/" + issue.id());
                                 } else {
                                     ctx.result("Create fail. Reload page.");
                                 }
                             });
                             post("/delete", ctx -> {
-                                final String title = ctx.formParam("title");
+                                final String summary = ctx.formParam("summary");
                                 final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
                                 if (new SqlIssue(container, issue).delete()) {
-                                    logs.add("Issue created: " + title);
+                                    logs.add("Issue created: " + summary);
                                     ctx.redirect("/");
                                 } else {
                                     ctx.result("Delete fail. Reload page.");
                                 }
                             });
                             post("/update", ctx -> {
-                                final String title = ctx.formParam("title");
+                                final String summary = ctx.formParam("summary");
                                 final String description = ctx.formParam("description");
                                 final Integer issue = ctx.formParamAsClass("issue", Integer.class).get();
-                                if (new SqlIssue(container, issue).update(title, description)) {
+                                if (new SqlIssue(container, issue)
+                                        .update(summary, description, 1, 1, 5, 1, 1704107471, 1704107471, 0)) {
                                     logs.add("Issue updated: " + issue);
                                     ctx.redirect("/issue/" + issue);
                                 } else {

@@ -35,7 +35,7 @@ public final class SqlIssues implements Issues {
     }
 
     @Override
-    public Issue byTitle(final String title) {
+    public Issue bySummary(final String title) {
         final String query = String.format("SELECT * FROM issue WHERE title = '%s'", title);
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();

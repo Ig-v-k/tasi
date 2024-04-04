@@ -182,13 +182,49 @@ public final class SqlIssue implements Issue {
     }
 
     @Override
-    public boolean update(String title, String description) {
-        final String sql = "UPDATE issue SET title = ?, description = ? WHERE id = ?";
+    public long resolved() {
+        final String query = String.format("SELECT resolved FROM issue WHERE id = %s", id);
+        try (final Connection conn = container.conn();
+             final Statement st = conn.createStatement();
+             final ResultSet rs = st.executeQuery(query)) {
+            if (rs.next()) {
+                final long resolved = rs.getLong("resolved");
+                return resolved;
+            } else {
+                final String mes = String.format(
+                        "Cannot find column 'resolved' with query: \"%s\", and arguments: %s",
+                        query, Arrays.toString(new int[]{id}));
+                throw new RuntimeException(mes);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean update(String summary,
+                          String description,
+                          int assignee,
+                          int reporter,
+                          int priority,
+                          int status,
+                          long created,
+                          long updated,
+                          long resolved) {
+        final String sql = "UPDATE issue SET summary = ?, description = ?, assignee = ?, reporter = ?, priority = ?, " +
+                "status = ?, created = ?, updated = ?, resolved = ? WHERE id = ?";
         try (final Connection conn = container.conn();
              final PreparedStatement st = conn.prepareStatement(sql)) {
-            st.setString(1, title);
+            st.setString(1, summary);
             st.setString(2, description);
-            st.setInt(3, id);
+            st.setInt(3, assignee);
+            st.setInt(4, reporter);
+            st.setInt(5, priority);
+            st.setInt(6, status);
+            st.setLong(7, created);
+            st.setLong(8, updated);
+            st.setLong(9, resolved);
+            st.setInt(10, id);
             int affected = st.executeUpdate();
             return affected > 0;
         } catch (SQLException e) {

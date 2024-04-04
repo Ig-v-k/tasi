@@ -10,6 +10,15 @@ public interface Issue {
     int status();
     long created();
     long updated();
-    boolean update(String title, String description);
+    long resolved();
+    boolean update(final String summary,
+                   final String description,
+                   final int assignee,
+                   final int reporter,
+                   final int priority,
+                   final int status,
+                   final long created,
+                   final long updated,
+                   final long resolved);
     boolean delete();
 }
