@@ -32,7 +32,7 @@ public final class IssuesFacet implements Facet<TableTag> {
                         th("Created"),
                         th("Updated")
                 ), each(issues, (i, e) -> {
-                    final String title = e.title();
+                    final String title = e.summary();
                     return tr(
                             td("-T-"),
                             td("-Key-"),

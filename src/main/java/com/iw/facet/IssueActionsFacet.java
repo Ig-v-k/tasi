@@ -62,13 +62,13 @@ public final class IssueActionsFacet implements Facet<DivTag> {
     private DialogTag confirmDeleteDlg(final Issue issue) {
         return dialog(
                 p(b("Delete issue")),
-                p(String.format("Are you sure to delete \"%s\"", issue.title())),
+                p(String.format("Are you sure to delete \"%s\"", issue.summary())),
                 form(
                         input()
                                 .withType("hidden")
                                 .withId("title")
                                 .withName("title")
-                                .withValue(issue.title()),
+                                .withValue(issue.summary()),
                         input()
                                 .withType("hidden")
                                 .withId("issue")
@@ -90,7 +90,7 @@ public final class IssueActionsFacet implements Facet<DivTag> {
                                 .withType("text")
                                 .withId("title")
                                 .withName("title")
-                                .withValue(issue.title().trim())
+                                .withValue(issue.summary().trim())
                                 .withPlaceholder("Title")
                                 .withMaxlength("255")
                                 .withSize("10")

@@ -24,11 +24,11 @@ public final class IssuePage implements Page {
     @Override
     public String render() {
         final Issue issue = new SqlIssue(container, id);
-        final String title = issue.title();
+        final String summary = issue.summary();
         return new TmplPage(
-                title,
-                title,
-                "Projects  /  CRM  /  " + title,
+                summary,
+                summary,
+                "Projects  /  CRM  /  " + summary,
                 new IssueActionsFacet(issue),
                 new BodyFacet("issueOnLoad()",
                         new IssueDetailsFacet(issue),

@@ -22,17 +22,17 @@ public final class SqlIssue implements Issue {
     }
 
     @Override
-    public String title() {
-        final String query = String.format("SELECT title FROM issue WHERE id = %s", id);
+    public String summary() {
+        final String query = String.format("SELECT summary FROM issue WHERE id = %s", id);
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();
              final ResultSet rs = st.executeQuery(query)) {
             if (rs.next()) {
-                final String title = rs.getString("title");
-                return title;
+                final String summary = rs.getString("summary");
+                return summary;
             } else {
                 final String mes = String.format(
-                        "Cannot find column 'title' with query: \"%s\", and arguments: %s",
+                        "Cannot find column 'summary' with query: \"%s\", and arguments: %s",
                         query, Arrays.toString(new int[]{id}));
                 throw new RuntimeException(mes);
             }

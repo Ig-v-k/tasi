@@ -22,7 +22,7 @@ public final class IssueTest extends AbsContainerTest {
     public void title() {
         final Container container = new SqlContainer(new PsqlJDBC(username, password));
         final Issue issue = new SqlIssue(container, 1);
-        final String title = issue.title();
+        final String title = issue.summary();
         assertThat(title).isNotBlank();
     }
 }
