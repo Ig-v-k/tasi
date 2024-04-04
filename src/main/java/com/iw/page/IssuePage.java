@@ -28,7 +28,7 @@ public final class IssuePage implements Page {
         return new TmplPage(
                 title,
                 title,
-                "Projects  /  CRM  /  " + issue.description(),
+                "Projects  /  CRM  /  " + title,
                 new IssueActionsFacet(issue),
                 new BodyFacet("issueOnLoad()",
                         new IssueDetailsFacet(issue),
