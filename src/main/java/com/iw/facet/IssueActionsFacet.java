@@ -11,55 +11,38 @@ import static j2html.TagCreator.*;
 public final class IssueActionsFacet implements Facet<DivTag> {
 
     private final Issue issue;
+    private final Container container;
 
-    public IssueActionsFacet(Issue issue) {
+    public IssueActionsFacet(final Issue issue, final Container container) {
         this.issue = issue;
+        this.container = container;
     }
 
     @Override
     public Tag<DivTag> tag() {
         return div(
-                confirmDeleteDlg(issue),
-                editDlg(issue),
+                deleteDlg(issue), editDlg(issue),
+                div(
+                        join(new IssueStatusFacet(issue.status(), container).tag(),
+                                "&nbsp",
+                                button(attrs(".secondary"), "Edit"),
+                                "&nbsp",
+                                button(attrs(".secondary"), "Delete"),
+                                "&nbsp"
+                        )
+                ),
                 div(
                         join(
-                                a("Report").withHref("#"),
-                                "&ensp;",
                                 a(b("1"), text("Watch")).withHref("#"),
                                 "&ensp;",
                                 a(b("2"), text("Likes")).withHref("#"),
                                 "&ensp;",
                                 a("Share").withHref("#")
                         )
-                ),
-                div(
-                        join(
-                                button(attrs(".secondary"), "Attach"),
-                                "&nbsp",
-                                button(attrs(".secondary"), "Subtask"),
-                                "&nbsp",
-                                button(attrs(".secondary"), "Link issue"),
-                                "&nbsp",
-                                button(attrs(".secondary"), "...")
-                        )
-                ),
-                div(
-                        select(
-                                option("Done").withValue("done"),
-                                option("Todo").withValue("todo"),
-                                option("In progress").withValue("inprogress")
-                        ),
-                        select(
-                                option("Actions").withValue(""),
-                                option("Action1").withValue("action1"),
-                                option("Action2").withValue("action2"),
-                                option("Action3").withValue("action3")
-                        )
-                )
-        );
+                )        );
     }
 
-    private DialogTag confirmDeleteDlg(final Issue issue) {
+    private DialogTag deleteDlg(final Issue issue) {
         return dialog(
                 p(b("Delete issue")),
                 p(String.format("Are you sure to delete \"%s\"", issue.summary())),
