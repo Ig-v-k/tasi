@@ -21,21 +21,26 @@ public final class IssuesActionsFacet implements Facet<DivTag> {
     }
 
     private DomContent actions() {
-        return div(
+        return form(
                 input().withPlaceholder("Search").withType("text").withSize("20"),
                 select(
                         option("Type").withValue(""),
                         option("Bug").withValue("bug"),
-                        option("Feature").withValue("feature")),
+                        option("Feature").withValue("feature")
+                ).withId("type").withName("type"),
                 select(
                         option("Status").withValue(""),
                         option("Progress").withValue("progress"),
-                        option("Todo").withValue("todo")),
+                        option("Todo").withValue("todo")
+                ).withId("status").withName("status"),
                 select(
                         option("Assignee").withValue(""),
-                        option("A a").withValue("@a"),
-                        option("B b").withValue("@b")),
+                        option("A a").withValue("a_a"),
+                        option("B b").withValue("b_b")
+                ).withId("assignee").withName("assignee"),
+                button("Search").withId("search").withType("submit"),
                 text(" | "),
-                a("Reset").withHref("#"));
+                a("Reset").withHref("/")
+        ).withAction("/").withMethod("get");
     }
 }
