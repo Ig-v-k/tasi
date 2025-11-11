@@ -29,8 +29,6 @@ public class App {
         final Issues issues = new SqlIssues(container);
         final Logs logs = new SqlLogs(container);
 
-        final Page pHome = new HomePage(issues);
-
         Javalin.create(cfg -> {
                     cfg.staticFiles.add("/assets/public", Location.CLASSPATH);
                     cfg.router.apiBuilder(() -> {
@@ -108,7 +106,7 @@ public class App {
                         });
                     });
                 })
-                .get("/", ctx -> ctx.html(pHome.render()))
+                .get("/", ctx -> ctx.html(new HomePage().render()))
                 .get("/issue/{id}", ctx -> ctx.html(new IssuePage(container, ctx.pathParam("id")).render()))
                 .error(HttpStatus.NOT_FOUND, ctx -> ctx.result("404. Page not found"))
                 .start(8080);

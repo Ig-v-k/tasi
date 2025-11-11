@@ -1,17 +1,11 @@
 package com.iw.page;
 
-import com.iw.Issues;
 import com.iw.Page;
-import com.iw.facet.*;
+import com.iw.facet.BodyFacet;
+import com.iw.facet.EmptyFacet;
+import com.iw.facet.HomeActionsFacet;
 
 public final class HomePage implements Page {
-
-    private final Issues issues;
-
-    public HomePage(final Issues issues) {
-        this.issues = issues;
-    }
-
     @Override
     public String render() {
         return new TmplPage(
@@ -19,9 +13,6 @@ public final class HomePage implements Page {
                 "tasi",
                 "Bug report manager",
                 new HomeActionsFacet(),
-                new BodyFacet("issuesOnLoad()",
-                        new IssuesSectionFacet(
-                                new IssuesActionsFacet(
-                                        new IssuesFacet(issues.all()))))).render();
+                new BodyFacet(new EmptyFacet())).render();
     }
 }
