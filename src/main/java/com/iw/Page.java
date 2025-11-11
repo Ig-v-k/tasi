@@ -1,5 +1,5 @@
 package com.iw;
 
 public interface Page {
-    String render();
+    String render() throws Exception;
 }

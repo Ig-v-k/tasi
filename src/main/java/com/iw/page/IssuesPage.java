@@ -1,8 +1,11 @@
 package com.iw.page;
 
+import com.iw.Issue;
 import com.iw.Issues;
 import com.iw.Page;
 import com.iw.facet.*;
+
+import java.util.List;
 
 public final class IssuesPage implements Page {
 
@@ -14,6 +17,7 @@ public final class IssuesPage implements Page {
 
     @Override
     public String render() {
+        final List<Issue> all = issues.all();
         return new TmplPage(
                 "Issues",
                 "Issues",
@@ -22,6 +26,6 @@ public final class IssuesPage implements Page {
                 new BodyFacet("issuesOnLoad()",
                         new IssuesSectionFacet(
                                 new IssuesActionsFacet(
-                                        new IssuesFacet(issues.all()))))).render();
+                                        new IssuesFacet(all))))).render();
     }
 }

@@ -5,19 +5,20 @@ import com.iw.comments.SqlComments;
 import com.iw.container.HikariContainer;
 import com.iw.credential.EnvCredential;
 import com.iw.issue.SqlIssue;
+import com.iw.issues.QueryParamIssues;
 import com.iw.issues.SqlIssues;
 import com.iw.jdbc.PsqlJDBC;
 import com.iw.logs.SqlLogs;
 import com.iw.page.HomePage;
 import com.iw.page.IssuePage;
+import com.iw.page.IssuesPage;
 import io.javalin.Javalin;
 import io.javalin.http.HttpStatus;
 import io.javalin.http.staticfiles.Location;
 
 import java.util.Calendar;
 
-import static io.javalin.apibuilder.ApiBuilder.path;
-import static io.javalin.apibuilder.ApiBuilder.post;
+import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
     public static void main(String[] args) {
@@ -108,6 +109,7 @@ public class App {
                 })
                 .get("/", ctx -> ctx.html(new HomePage().render()))
                 .get("/issue/{id}", ctx -> ctx.html(new IssuePage(container, ctx.pathParam("id")).render()))
+                .get("/issues", ctx -> ctx.html(new IssuesPage(new QueryParamIssues(container, ctx.queryParamMap())).render()))
                 .error(HttpStatus.NOT_FOUND, ctx -> ctx.result("404. Page not found"))
                 .start(8080);
     }

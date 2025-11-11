@@ -22,7 +22,7 @@ public final class IssuesActionsFacet implements Facet<DivTag> {
 
     private DomContent actions() {
         return form(
-                input().withPlaceholder("Search").withType("text").withSize("20"),
+                input().withId("search").withName("search").withPlaceholder("Search").withType("text").withSize("20"),
                 select(
                         option("Type").withValue(""),
                         option("Bug").withValue("bug"),
