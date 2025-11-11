@@ -34,9 +34,9 @@ public final class HomeActionsFacet implements Facet<DivTag> {
                 form(
                         input()
                                 .withType("text")
-                                .withId("title")
-                                .withName("title")
-                                .withPlaceholder("Title")
+                                .withId("summary")
+                                .withName("summary")
+                                .withPlaceholder("Summary")
                                 .withMaxlength("255")
                                 .withSize("10")
                                 .isRequired(),

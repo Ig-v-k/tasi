@@ -36,7 +36,7 @@ public final class SqlIssues implements Issues {
 
     @Override
     public Issue bySummary(final String title) {
-        final String query = String.format("SELECT * FROM issue WHERE title = '%s'", title);
+        final String query = String.format("SELECT * FROM issue WHERE summary = '%s'", title);
         try (final Connection conn = container.conn();
              final Statement st = conn.createStatement();
              final ResultSet rs = st.executeQuery(query)) {
@@ -53,7 +53,7 @@ public final class SqlIssues implements Issues {
 
     @Override
     public boolean add(String title) {
-        final String sql = "INSERT INTO issue (title) VALUES (?)";
+        final String sql = "INSERT INTO issue (summary) VALUES (?)";
         try (final Connection conn = container.conn();
              final PreparedStatement st = conn.prepareStatement(sql)) {
             st.setString(1, title);
