@@ -1,5 +1,6 @@
 package com.iw.jdbc;
 
+import com.iw.Credential;
 import com.iw.JDBC;
 
 public final class PsqlJDBC implements JDBC {
@@ -9,6 +10,10 @@ public final class PsqlJDBC implements JDBC {
     private final String database;
     private final String username;
     private final String password;
+
+    public PsqlJDBC(final Credential credential) {
+        this("localhost", 5432, "tasi", credential.login(), credential.password());
+    }
 
     public PsqlJDBC(String username, String password) {
         this("localhost", 5432, "tasi", username, password);

@@ -3,6 +3,7 @@ package com.iw;
 import com.iw.comment.SqlComment;
 import com.iw.comments.SqlComments;
 import com.iw.container.HikariContainer;
+import com.iw.credential.EnvCredential;
 import com.iw.issue.SqlIssue;
 import com.iw.issues.SqlIssues;
 import com.iw.jdbc.PsqlJDBC;
@@ -20,9 +21,11 @@ import static io.javalin.apibuilder.ApiBuilder.post;
 
 public class App {
     public static void main(String[] args) {
-        final String username = System.getenv("username");
-        final String password = System.getenv("password");
-        final Container container = new HikariContainer(new PsqlJDBC(username, password));
+        final Container container =
+                new HikariContainer(
+                        new PsqlJDBC(
+                                new EnvCredential("psql_username", "psql_password")));
+
         final Issues issues = new SqlIssues(container);
         final Logs logs = new SqlLogs(container);
 
